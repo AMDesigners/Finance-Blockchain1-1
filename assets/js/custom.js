@@ -1,1 +1,56 @@
-$(window).scroll(function(){0==$(window).scrollTop()?$(".scroll_top").stop(!1,!0).fadeOut(600):$(".scroll_top").stop(!1,!0).fadeIn(600)}),$(document).on("click",".scroll_top",function(){return $("body,html").animate({scrollTop:0},400),!1}),$(window).scroll(function(){$(window).scrollTop()>=75?$(".header-main.index-header").addClass("bg-color"):$(".header-main.index-header").removeClass("bg-color")}),wow=new WOW({animateClass:"animated",offset:100,callback:function(o){console.log("WOW: animating <"+o.tagName.toLowerCase()+">")}}),wow.init();
+/* Js for Showing and hiding scrolltop button */
+$(window).scroll(function () {
+    /* Show hide scrolltop button */
+    if ($(window).scrollTop() == 0) {
+        $('.scroll_top').stop(false, true).fadeOut(600);
+    } else {
+        $('.scroll_top').stop(false, true).fadeIn(600);
+    }
+});
+
+/* JS for scroll top */
+$(document).on('click', '.scroll_top', function () {
+    $('body,html').animate({scrollTop: 0}, 400);
+    return false;
+});
+
+
+
+
+/*----wow initialization-----*/
+wow = new WOW(
+        {
+            animateClass: 'animated',
+            offset: 100,
+            callback: function (box) {
+                console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+            }
+        }
+);
+wow.init();
+/*----wow end-----*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
