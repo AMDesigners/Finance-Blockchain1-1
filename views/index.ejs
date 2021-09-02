@@ -1,992 +1,1718 @@
-<!DOCTYPE html>
-<html>
+<%- include('index_header') %>
 
-<head>
-    <title>ETHEREUM BUCKEYE TOKEN</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-    <!-- Bootstrap Core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../assets/css/bootstrap-dropdownhover.min.css" rel="stylesheet" />
-    <!-- slick CSS -->
-    <link href="../assets/css/slick.css" rel="stylesheet" />
-    <link href="../assets/css/slick-theme.css" rel="stylesheet" />
-    <!-- Animate CSS -->
-    <link href="../assets/css/animate.css" rel="stylesheet" />
-    <!-- hover-min CSS -->
-    <link href="../assets/css/hover-min.css" rel="stylesheet" />
-    <!-- yamm css -->
-    <link href="../assets/css/yamm.css" rel="stylesheet" />
-    <!-- Font-awesome web fonts with css -->
-    <link href="../assets/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
-    <!-- Font-awesome web fonts with css -->
-    <!-- loader css -->
-    <link href="../assets/css/loader.css" rel="stylesheet" />
-    <link href="../assets/css/timeline.css" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <!--  <link href="../assets/css/custom-home-new.css" rel="stylesheet"/> -->
-    <link href="../assets/css/custom-llc.css" rel="stylesheet" />
-    <link href="../assets/css/custom-ebt.css" rel="stylesheet" />
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../assets/css/jquery-ui.css">
-
-    <style>
-        .sec-banner .countdown {
-            font-weight: 600;
-            font-size: 30px;
-            color: #000;
-            text-align: center;
-            background: linear-gradient(to bottom, #e1c879 50%, #D7B64D 50%);
-            background: -webkit-linear-gradient(top, #e1c879 50%, #D7B64D 50%);
-            background: -o-linear-gradient(top, #e1c879 50%, #D7B64D 50%);
-            background: linear-gradient(to bottom, #e1c879 50%, #D7B64D 50%);
-            width: 56px;
-            height: 58px;
-            border-radius: 10px;
-            padding-top: 6px;
-            margin-bottom: 5px;
-            position: relative;
-            margin: 0 auto 7px;
-        }
-
-        .sec-banner .countdown.last {
-            /*-- background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #6f2468), color-stop(50%, #e59f15));--*/
-            background: linear-gradient(to bottom, #e1c879 50%, #D7B64D 50%);
-            background: -webkit-linear-gradient(top, #e1c879 50%, #D7B64D 50%);
-            background: -o-linear-gradient(top, #e1c879 50%, #D7B64D 50%);
-            background: linear-gradient(to bottom, #e1c879 50%, #D7B64D 50%);
-        }
-
-        .sec-banner .counter-text {
-            font-size: 13px;
-            color: #D7B64D;
-            text-align: center;
-
-        }
-
-        .sec-banner .countdown::after {
-            content: ":";
-            position: absolute;
-            right: -17px;
-            color: #fff;
-            top: 25px;
-            font-size: 37px;
-            line-height: 0;
-        }
-
-        .sec-banner .countdown.last::after {
-            content: none;
-        }
-
-        .sec-banner .timer {
-            display: inline-block;
-            margin: 10px 10px 20px;
-        }
-
-        .banner-inner-text p {
-            font-size: 14px;
-            line-height: 22px;
-        }
-
-        .extra-links.social-links ul {
-            text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-        }
-
-        .extra-links ul li {
-            list-style: none;
-            display: inline-block;
-            padding: 0 15px;
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-
-        .extra-links ul li a {
-            color: #fff;
-            text-decoration: none;
-            outline: none;
-            display: block;
-            font-size: 25px;
-        }
-
-
-        .video-stream-sec {
-            border-top: 1px solid #d7b64d;
-            border-bottom: 1px solid #d7b64d;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 90px 0 60px;
-            margin: 60px 0 20px;
-            background-image: url(assets/images/bg-network.jpg);
-            background-position: center left;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-blend-mode: multiply;
-        }
-
-        .header-main.index-header .navbar .nav-link.sign-up-btn {
-            color: #000 !important;
-            font-size: 18px !important;
-            font-weight: 700;
-        }
-
-        .header-main.index-header.bg-color .navbar .nav-link.sign-up-btn {
-            color: #000 !important;
-            font-size: 18px !important;
-            font-weight: 700;
-        }
-
-        .header-main.index-header .nav-link.sign-up-btn.purple-btn-index.golden-btn {
-            margin-left: 10px;
-            background-image: url(assets/images/new-img/golden-bg.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            color: #000 !important;
-            font-weight: 700;
-            font-size: 18px !important;
-            animation: zoom-in-zoom-out 1s ease infinite;
-        }
-
-        @keyframes zoom-in-zoom-out {
-            0% {
-                transform: scale(1, 1);
-            }
-
-            50% {
-                transform: scale(1.03, 1.03);
-            }
-
-            100% {
-                transform: scale(1, 1);
-            }
-        }
-    </style>
-
-</head>
-
-<body class="index-body">
-
-    <!-- normal header -->
-
-
-    <header class="header-main index-header">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light p-2">
-                <a class="navbar-brand logo" href="/">
-
-                    <h1><img src="../assets/images/logo-white.png" class="color-logo" alt=" Logo"> &nbsp; ETHEREUM
-                        BUCKEYE TOKEN</h1>
-
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navigation" id="main-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About EBT</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#roadmap">Roadmap</a>
-
-
-
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#team">EBT Team</a>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sign-up-btn purple-btn-index" href="login">Login</a>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sign-up-btn purple-btn-index golden-btn" href="#live-stream">Live
-                                Streaming</a>
-                        </li>
-
-                    </ul>
+<section class="sec-banner">
+     <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 align-items-center">
+                    <div class="wow slideInUp">
+                        <h4 class="text-uppercase">Credit Access, Institutional Transparency, Financial Inclusion</h4>
+                        <p style="font-family: 'Roboto-Regular';">An inclusive system of shared economies that advances the crypto adoption to an unmatched level of financial liberation.</p>
+                        
+                        <div class="btn-banner">
+                         <a href="" class="btn-advisory btn">Finance Block App</a>
+                         <a href="" class="btn-token btn">Coin</a>
+                         <a href="" class="btn-whitepaper btn">White Paper</a>
+                       </div>
+                       <!--<p class="mb-0">5 Year Company</p>-->
+                       <small>Finance Block Digital Technologies & Media Services Pvt. Ltd.</small>
+                   </div>
                 </div>
-
-            </nav>
-        </div>
-    </header>
-
-
-    <section class="sec-banner page-section" id="home">
-        <div class="container-fluid p-0">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="outer-banner">
+                <div class="col-md-6 align-items-center">
+                    <div class="white-box text-center wow slideInUp">
+                        <h4 class="text-uppercase zoomnow">Finance Block Sale Starts</h4>
+                        <div class="timer">
+                            <div id="daysTicker" class="countdown"></div>
+                            <div class="counter-text">DAYS</div>
+                        </div>
+                        <div class="timer">
+                            <div id="hoursTicker" class="countdown"></div>
+                            <div class="counter-text">HOURS</div>
+                        </div>
+                        <div class="timer">
+                            <div id="minsTicker" class="countdown"></div>
+                            <div class="counter-text">MINUTES</div>
+                        </div>
+                        <div class="timer">
+                            <div id="secsTicker" class="countdown last"></div>
+                            <div class="counter-text">SECONDS</div>
+                        </div>
+                        <p class="text-left text-uppercase"><span>fund raised</span>:  $2000</p>
+                        <div class="progress">
+                          <div style="width: 60%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="red progress-bar">
+                          <span></span>
+                           </div>
+                        </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="banner-slider">
-                                    <div class="item">
-                                        <img src="../assets/images/banner.png" class="img-fluid">
-                                        <div class="banner-inner-text">
-                                            <div>
-                                                <h2>Rate 1EBT = $0.00000001:<br /> "THE PEOPLE'S COIN"</h2>
-                                                <div>
-                                                    <div class="timer">
-                                                        <div id="daysTicker" class="countdown"></div>
-                                                        <div class="counter-text">DAYS</div>
-                                                    </div>
-                                                    <div class="timer">
-                                                        <div id="hoursTicker" class="countdown"></div>
-                                                        <div class="counter-text">HOURS</div>
-                                                    </div>
-                                                    <div class="timer">
-                                                        <div id="minsTicker" class="countdown"></div>
-                                                        <div class="counter-text">MINUTES</div>
-                                                    </div>
-                                                    <div class="timer">
-                                                        <div id="secsTicker" class="countdown last"></div>
-                                                        <div class="counter-text">SECONDS</div>
-                                                    </div>
-                                                </div>
-                                                <h2>Buy now and get 35% discount at $0.0000000065</h2>
-                                                <p>Ethereum Buckeye Token was formed by a group of local advocates in
-                                                    Cleveland Ohio with the intention of being a charitable token of
-                                                    choice on the ERC-20 black chain! We began as a small organic idea
-                                                    and have formed into a group large enough to advocate for EBT’s
-                                                    acceptance nationwide. “EBT ACCEPTED HERE” will soon be in
-                                                    businesses and organizations all over North America.</p>
-                                                <div class="banner-btn">
-                                                    <a href="https://t.me/ETHEREUMBUCKEYETOKEN" target="_blank"
-                                                        class="purple-btn-index"><i class="fab fa-telegram-plane"></i>
-                                                        Join Us Now</a>
-                                                    <a href="../assets/ETHEREUMBUCKEYETOKEN.pdf" target="_blank"
-                                                        class="purple-btn-index">Litepaper</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                            <div class="col-md-6 col-6">
+                                <div class="text-left">
+                                    <p><span class="text-uppercase">Soft cap.</span> $1 M</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <div class="text-right">
+                                    <p><span class="text-uppercase">hard cap.</span> $4.8 M</p>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center">
+                           <a href="" class="btn btn-common">Buy Now</a>
+                        </div>
+                        <div class="text-center txt-info">
+                          Accepted: BTC/ ETH/ USDT/DDK
+                        </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<section class="sec-padd sec-feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="head-common wow slideInUp text-center">Featured In</h4>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="regular">
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature1.png">
+                </div>
+              </div>
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature2.png">
+                </div>
+              </div>
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature3.png">
+                </div>
+              </div>
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature4.png">
+                </div>
+              </div>
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature5.png">
+                </div>
+              </div>
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature1.png">
+                </div>
+              </div>
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature2.png">
+                </div>
+              </div>
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature3.png">
+                </div>
+              </div>
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature4.png">
+                </div>
+              </div>
+              <div class="item">
+                <div class="f-icon">
+                  <img src="../assets/images/other/feature5.png">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row align-items-center feature-icon text-center">
+            <div class="col-6 col-sm-6 col-md-3 col-lg">
+                <img src="../assets/images/other/feature1.png">
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg">
+                <img src="../assets/images/other/feature2.png">
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg">
+                <img src="../assets/images/other/feature3.png">
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg">
+                <img src="../assets/images/other/feature4.png">
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg">
+                <img src="../assets/images/other/feature5.png">
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="head-common wow slideInUp text-center">Current Dashboard view of Finance Block Platform</h4>
+            </div>
+        </div>
+
+         <div class="row align-items-center mb-3">
+           <div class="col-md-12 col-sm-12 align-items-center">
+                <div class="img-box">
+                     <img src="../assets/images/other/desktop.png" class="img-fluid wow slideInUp">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row align-items-center mt-5">
+            <div class="col-sm-12 col-md-6 align-items-center">
+                <div class="platform-content">
+                    <h4 class="head-common wow slideInUp">Finance Block Community and Crypto Market</h4>
+                    <div class="txt wow slideInUp">
+                      If you were wondering how a fintech-driven solution of the prevalent challenges would like, it is
+					evident now –
+					Finance Blocks
+					The twist is – it is driven by empathy and a desire to help the RFIs, backed by cutting edge
+					fintech.
+					Twin pillars this blockchain-based solution stands on are
+					Identity and Credit Score!
+					Identity: The app connects seamlessly with national identity systems and provides secure
+					storage of identity-related data in the blockchain, which is practically impossible to change for
+					any single stakeholder. Just an ID of the applicant will be enough to verify their identity.
+					Credit Score: Inability of the RFIs in risk profiling of the applicants has been resolved with an
+					automated system assigning credit scores to every applicant on the basis of their past credit
+					behavior.
+					Blockchain infuses an unprecedented level of transparency as well in the transactions. Every
+					detail is noted on a decentralized ledger which is immune from all sorts of interferences.
+					Technical sophistry combined with empathy has done wonders!
+                    </div>
+                </div>
+            </div>
+           <div class="col-md-6 col-sm-12 align-items-center">
+                <div class="img-box">
+                     <img src="../assets/images/other/market.png" class="img-fluid wow slideInUp">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sec-market">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="text-center head-common wow mt-5 slideInUp">Current Market Challenges</h4>
+                <h5 class="text-center subhead-common wow slideInUp">For Commodity and Crypto Traders
+                </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="white-box">
+                <div class="img-box">
+                  <img src="../assets/images/other/BG@2x.png">
+                </div>
+                <div class="row">
+                  <div class="col-md-10 offset-md-1">
+                      <div id="owl-feature" class="feature-slider">
+                          <div class="item">
+                              <div class="row">
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/StuntedCommercialFlows.png">
+                                          <div class="title">Stunted Commercial Flows</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/ObturatedGlobalRemittances.png">
+                                          <div class="title">Obturated Global Remittances</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/MarketElasticity.png">
+                                          <div class="title">Market Elasticity</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/LiquidityOptions.png">
+                                          <div class="title">Liquidity Options</div>
+                                      </div>
+                                  </div>
+                             
+                              </div>
+                          </div>
+                          <div class="item">
+                              <div class="row">
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/HiddenIntermediaryCosts.png">
+                                          <div class="title">Hidden Intermediary Costs</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/Lack of Digital Storage.png">
+                                          <div class="title">Lack of Digital Storage</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/FinancialDependence.png">
+                                          <div class="title">Financial  Dependence</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/TechnologicalAdaptation.png">
+                                          <div class="title">Technological Adaptation</div>
+                                      </div>
+                                  </div>
+                               
+                              </div>
+                          </div>
+                          <div class="item">
+                              <div class="row">
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/Inflexible Instruments of Transactions.png">
+                                          <div class="title">Inflexible Instruments of Transactions</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/RealTimeOn-DemandServices.png">
+                                          <div class="title">Real Time On-Demand Services</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/DerogationofCompetitiveAdvantage.png">
+                                          <div class="title">Derogation of Competitive Advantage</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6 col-md-6 col-12 col-lg-6">
+                                      <div class="text-center">
+                                          <img src="../assets/images/other/MediumofExchanges.png">
+                                          <div class="title">Medium of Exchanges</div>
+                                      </div>
+                                  </div>
+                              
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sec-padd sec-app">
+    <div class="container">
+    <div class="row align-items-center mt-5">
+        <div class="col-md-10 offset-md-1">
+        <h4 class="head-common text-center">Know About  Finance Block App</h4>
+          <div class="app-txt text-center">
+              Following POA Protocol on Private Ethereum Blockchain network, Finance Block ordains to obtain an organized system of assistance that greatly influences the way users acquit the mediums of exchange in future.
+          </div>
+      </div>
+            <div class="col-md-6 col-sm-12 align-items-center text-center">
+                <!--<img src="../assets/images/other/mobile@2x.png" class="app-img">-->
+                  <img src="../assets/images/other/mobilek.png" class="app-img">
+            </div>
+            <div class="col-sm-12 col-md-6 align-items-center">
+               <!-- <h4 class="wow slideInUp head-app">Know About  Finance Block App</h4>
+                <div class="app-txt">
+                   Following POA Protocol on Private Ethereum Blockchain network, Finance Block ordains to obtain an organized system of assistance that greatly influences the way users acquit the mediums of exchange in future.
+                </div>-->
+                <div class="app-feature">
+                  <h4 class="slideInUp wow head-feature">App Features</h4>
+                    <ul>
+                        <li>Bio-Metric Login</li>
+                        <li>Multi Coin Wallet Management</li>
+                        <li>Comprehensive Risk Control System</li>
+                        <li>Outstanding Support Team</li>
+                        <li>Hardware Wallets & Cold Wallets</li>
+                        <li>Built-in Coin Exchange</li>
+                    </ul>
+                </div>
+                <h4 class="head-app wow slideInUp mb-3">Will Launch on 1 January 2019</h4>
+                <div class="app-buttons">
+                    <a href="" class="btn btn-white"><img src="../assets/images/icons/playstore.png"> Google Play</a>
+                    <a href="" class="btn btn-white"><img src="../assets/images/icons/apple.png"> App Store</a>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-12 col-lg-5 align-items-center">Register for Pre Invite</div>
+                    <div class="col-md-12 col-lg-7 align-items-center">
+                        <div class="common-input">
+                            <input type="text" class="form-control" placeholder="">
+                            <button class="btn btn-common" type="button">Button</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+  </div>
+</section>
 
-    <section class="about-us ">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 class="common-big-heading text-center mb-5">EBT Sponsors </h4>
+<section class="sec-padd sec-token">
+  <div class="side-img"><img src="../assets/images/other/new3.png"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h4 class="head-common slideInUp wow">Finance Block Coin</h4>
+                <div class="txt">Finance Block Coin aims to provide a flexible medium of exchange for its members. It acts as an intermediary instrument and tradeable unit that facilitates streamlining of all processes involved in settlement of transactions amongst the Finance Block global Community. Finance Block Coin is a classified intender that stimulates alternative liquidity options.</div>
+                <div class="d-block d-sm-block d-md-block d-xl-none d-lg-none">
+                  <img src="../assets/images/other/Finance Block%20isometric-03@2x.png" class="img-fluid">
                 </div>
-            </div>
-            <div class="row align-item-center">
-                <div class="col-md-12">
-                    <div class="partner-slider">
-                        <div class="item">
-                            <div class="partner-box">
-                                The Awakening Agenda
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Third World Investors
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Armond Perry
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                E and A Tax Prep
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                RichyyOtto
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                King Solomon X
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                NVASION
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                AD Babysitting
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Memphis Hot Wings
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                School Uniforms
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Mike Smith
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Jeepers Creepers
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                ProdbyLevent
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                T.H.E. U.A.I.
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Caribbean Connection
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                NJD Cleaning
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Myyaroma
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                HolyBrows
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Village Mart
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Magic Wireless
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                B Connected Wireless
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Summit Clothing
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="partner-box">
-                                Smooth Wireless
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+               <!--  <div class="token-img d-lg-block d-xl-block d-none d-sm-none d-md-none">
+                  <img src="../assets/images/animate-img/1x-old.png" class="main">
+                  <img src="../assets/images/animate-img/7x.png" class="etherium">
+                  
+                  <img src="../assets/images/animate-img/6x.png" class="bitcoin">
+                </div> -->
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-
-    <section class="about-us">
-        <div class="container">
-            <div class="row align-item-center">
-                <div class="col-md-9 m-auto">
-                    <div class="bg-ifram">
-                        <video width="100%" height="450" controls style="background-color: #000;">
-                            <source src="../assets/video.MOV" type="video/mp4">
-                        </video>
-                        <!--  <iframe width="100%" height="450" src="https://www.youtube.com/embed/Vrs1j3qZ8w0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                    </div>
-                </div>
+<section class="sec-padd sec-works">
+  <div class="side-img"><img src="../assets/images/other/3.png"></div>
+  <div class="container">
+    <div class="row">
+            <div class="col-md-12 text-center">
+                <h4 class="head-common wow slideInUp mb-1">HOW IT WORKS</h4>
+                <h5 class="subhead-common wow slideInUp mb-4">For Finance Block Community and Crypto Traders</h5>
             </div>
         </div>
-    </section>
-
-    <section class="about-us page-section" id="about">
-        <div class="container">
-            <div class="row align-item-center">
-                <div class="col-md-6 offset-md-1">
-                    <div class="about-text-inner wow slideInLeft">
-                        <h4 class="common-big-heading">About Us </h4>
-                        <p>The team is formed of charitable organizations, stock market groups, crypto organizations,
-                            and many more. At the end of the day we are all people who collectively would like to raise
-                            money for communities that are really in need. At the same time we recognize the need for a
-                            reputable alt-coin on the ERC-20 chain that actually stands for the people! We are here to
-                            fill the void.</p>
-
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="about-img-big wow slideInRight">
-                        <img src="../assets/images/logo-white.png" class="img-fluid">
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="../assets/images/other/Finance.png" class="works-icon mt-3">
             </div>
         </div>
-    </section>
+        <div class="row mg-tops">
+            <div class="col-md-6 text-center">
+                 <div class="work-box-bd">
+              <div class="wow zoomIn">
+                <img src="../assets/images/other/subscribe.png" class="works-icon">
+              </div>
+             
+                <h5 class="title">SUBSCRIPTION</h5>
+                <p class="text-detail">Finance BlockOIN main source of demand
+                  is the Smart Asset Managers’
+                Project Developments’ (Finance BlockPD)
+                     Subscription Program.</p>
+                     </div>
+            </div>
+            <div class="col-md-6 text-center">
+                 <div class="work-box-bd">
+              <div class="wow zoomIn">
+                <img src="../assets/images/other/subscribe.png" class="works-icon">
+              </div>
+              
+                <h5 class="title">CONVENTIONAL INCOME & MERCHANT</h5>
+                <p class="text-detail">Complementing the main source of
+demand is the revenue generated
+from the conventional business,
+established from the revenue
+derived from the Finance BlockPD</p>
+</div>
+            </div>
+            <div class="col-md-6 text-center">
+                 <div class="work-box-bd">
+              <div class="wow zoomIn">
+                <img src="../assets/images/other/subscribe.png" class="works-icon">
+              </div>
+              
+                <h5 class="title">AND EXCHANGE INCOME</h5>
+                <p class="text-detail">Re-enforcing added value to services
+in liquidating reward incentives that
+can be directly exchanged to fiat or
+any product or services, an income or
+profit from transaction fees will be
+generated from the management and
+implementation of each transaction.</p>
+</div>
+            </div>
+            <div class="col-md-6 text-center">
+                 <div class="work-box-bd">
+              <div class="wow zoomIn">
+                <img src="../assets/images/other/subscribe.png" class="works-icon">
+              </div>
+            
+                <h5 class="title">VENTURE CAPITAL INCOME</h5>
+                <p class="text-detail">Our main goal is to bridge the
+economic gap between digital and
+conventional economies. The capital market will be Finance Block DIGITAL
+TECH, the ultimate destination,
+thereby unleashing the multiple
+opportunities to each individual.</p>
+</div>
+            </div>
+        </div>
+  </div>
+</section>
 
-
-
-    <section class="about-us">
-        <div class="container">
-            <div class="row align-item-center">
-                <div class="col-md-5  order-2">
-                    <div class="about-text-inner wow slideInRight">
-                        <h3 class="main-heading-index-new wow slideInLeft"><span>01</span><b>COMMUNITY TRANSPARENCY</b>
-                        </h3>
-                        <p>Without community transparency we would be just like any other project. To differentiate from
-                            the usual narrative we have implemented the following internal controls!</p>
-                        <ul>
-                            <li>Owner wallet information pinned to website and telegram for entire life of project</li>
-                            <li>Road map will be executed and not deviated from unless absolutely necessary</li>
-                            <li>Voice chat open 24/7 for launch week and AMA held every Saturday night</li>
-                            <li>Constant engagement from mods and admins to all stakeholders </li>
+<section class="sec-padd sec-growth pd-botm" style="padding-bottom: 0px!important;">
+   <div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h4 class="head-common wow slideInUp text-uppercase">Finance Block Coin growth ratio</h4>
+            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-md-6 col-lg-7">
+               <h4 class="head-common wow slideInUp">Commodity Traders</h4>
+               <div class="table-responsive">
+                   <table class="table">
+                       <tbody>
+                           <tr>
+                               <td width="40%">Region:</td>
+                               <td width="60%">US, UK, EUROPE, ASIA,</td>
+                           </tr>
+                            <tr>
+                               <td width="40%">Exchange:</td>
+                               <td width="60%">MCX, COMEX, NYMEX</td>
+                           </tr>
+                           <tr>
+                               <td width="40%">Traders Qntty Aprox:</td>
+                               <td width="60%"> 50 Million</td>
+                           </tr>
+                       </tbody>
+                   </table>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-5">
+               <h4 class="head-common wow slideInUp">Crypto Traders</h4>
+               <div class="table-responsive">
+                   <table class="table">
+                       <tbody>
+                           <tr>
+                               <td width="45%">Region:</td>
+                               <td width="55%">US, UK, EUROPE, ASIA,</td>
+                           </tr>
+                            <tr>
+                               <td width="45%">Currencies:</td>
+                               <td width="55%">Bitcoin, Etherium, Others</td>
+                           </tr>
+                           <tr>
+                               <td width="45%">Traders Qntty Aprox:</td>
+                               <td width="55%"> 50 Million</td>
+                           </tr>
+                       </tbody>
+               </table>
+           </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="growth-ul">
+                    <p>Use the sliders to see how much your money can grow</p>
+                        <ul class="clearfix">
+                            <li>
+                             <div>
+                                 <div class="title">USD</div>
+                                 <div class="value">$25</div>
+                             </div>
+                            </li>
+                            <li>
+                             <div>
+                                 <div class="title">Growth%</div>
+                                 <div class="value">500%</div>
+                             </div>
+                            </li>
+                            <li>
+                             <div>
+                                 <div class="title">Users</div>
+                                 <div class="value">50,000</div>
+                             </div>
+                            </li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-md-5 offset-md-1 ">
-                    <div class="about-img wow slideInLeft">
-                        <img src="assets/images/img1.png" class="img-fluid">
-                    </div>
                 </div>
             </div>
-
-            <div class="row align-item-center mt-5">
-                <div class="col-md-5 offset-md-1">
-                    <div class="about-text-inner wow slideInLeft">
-                        <h3 class="main-heading-index-new wow slideInLeft"><span>02</span><b>CHAIN BASED CHARITY</b>
-                        </h3>
-                        <p>We are an organization that is designed to give our holders an opportunity to
-                            make a living while they are still at home with their families. Through $EBT you
-                            are able to earn 2% reflections on all your holdings. This means that for every
-                            purchase and sale of the coin we as a community will see an increase in our
-                            holdings. Additionally 2% of all transactions will be sent to the burn wallet
-                            essentially significantly ever increasing the value of coins in circulation. Lastly
-                            2% of all transactions will be sent to the community wallet. These funds will be
-                            used for promotional, charitable and otherwise project related expenses.
-                            These funds will not be released until both the original owners and the
-                            community elected mods decide so. This wallet will also be used to airdrop all
-                            holders free coins periodically.</p>
-
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="about-img wow slideInRight">
-                        <img src="assets/images/img2.png" class="img-fluid">
-                    </div>
-                </div>
+            <div class="col-md-12">
+              <div class="token-slider">
+                <input type="range" id="slider" value="0.0" min="0" max="7" step="1"/>
+                <p style="position: absolute;opacity: 0;">slider value = <span id="sliderStatus">0</span></p>
+                <img src="../assets/images/other/graph1.png" id='img'/>
+              </div>
             </div>
-
+            <!-- <div class="col-md-12">
+              <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+            </div> -->
+            <!-- <div class="col-md-12">
+              <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+            </div> -->
         </div>
-    </section>
+   </div>
+</section>
 
-    <section class="about-us">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 m-auto ">
-                    <div class="text-center">
-                        <img src="assets/images/graph.png" class="img-fluid w-100">
-                    </div>
-                </div>
+
+
+<section class="sec-padd sec-price">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h4 class="head-common wow slideInUp">The Coin</h4>
+                <img src="../assets/images/other/Finance.png" class="icon-price">
+                <div class="token-price">Coin price <span class="text-center">1 Finance Block = $ 1</span></div>
             </div>
         </div>
-    </section>
-
-    <section class="about-us page-section" id="roadmap">
-        <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-10 offset-lg-1 offset-md-0">
             <div class="row">
-                <div class="col-md-12">
-                    <h4 class="common-big-heading text-center">Roadmap </h4>
-                    <section class="ps-timeline-sec">
-                        <div class="container">
-                            <ol class="ps-timeline">
-                                <li>
-                                    <div class="img-handler-bot">
-                                        <ul>
-                                            <li>Publicize coin logo</li>
-                                            <li>Release news of project</li>
-                                            <li>Organize Cleveland, OH members</li>
-                                            <li>Host pre-launch release party</li>
-                                            <li>Order 50 EBT/KILLTHEZERO shirts</li>
-                                            <li>500 members in Telegram </li>
-                                            <li>8,000 followers Instagram</li>
-                                            <li>Create Twitter</li>
-                                            <li>$1,000 donated to charity</li>
-                                        </ul>
-                                    </div>
-                                    <div class="ps-top">
-                                        <p>July <br>2021</p>
-                                    </div>
-                                    <span class="ps-sp-bot">
-                                        <img src="../assets/images/logo-white.png" class="img-fluid">
-                                    </span>
-                                </li>
-                                <li>
-                                    <div class="img-handler-top">
-                                        <ul>
-                                            <li>Pre launch</li>
-                                            <li>Host live twitch party</li>
-                                            <li>1,000 members telegram</li>
-                                            <li>8,500 followed Instagram</li>
-                                            <li>100 followers Twitter</li>
-                                            <li>Get audited by reputable agency</li>
-                                            <li>$2,500 donated to charity</li>
-                                        </ul>
-                                    </div>
-                                    <div class="ps-top">
-                                        <p>August 2021</p>
-                                    </div>
-                                    <span class="ps-sp-bot">
-                                        <img src="../assets/images/logo-white.png" class="img-fluid">
-                                    </span>
-                                </li>
-                                <li>
-                                    <div class="img-handler-bot">
-                                        <ul>
-                                            <li>Launch EBT with anti-bot, anti-whale, and anti-sniper security</li>
-                                            <li>Make sure all coin holders have access to lite paper and tokenomics
-                                            </li>
-                                            <li>Release list of businesses endorsing EBT</li>
-                                            <li>Release list of organizations endorsing EBT</li>
-                                            <li>$10,000 donated to charity</li>
-                                        </ul>
-                                    </div>
-                                    <div class="ps-top">
-                                        <p>September 2021</p>
-                                    </div>
-                                    <span class="ps-sp-bot">
-                                        <img src="../assets/images/logo-white.png" class="img-fluid">
-                                    </span>
-                                </li>
-
-
-                            </ol>
-                        </div>
-                    </section>
-
+                <div class="col-md-4 border-bottom">
+                    <div class="info">
+                        <div class="title">Coin Type</div>
+                        <div class="value">Utility Coin</div>
+                    </div>
+                </div>
+                <div class="col-md-4 border-bottom">
+                    <div class="info">
+                        <div class="title">Soft Cap</div>
+                        <div class="value">10,00,000 $</div>
+                    </div>
+                </div>
+                <div class="col-md-4 border-bottom">
+                    <div class="info">
+                        <div class="title">Hard Cap</div>
+                        <div class="value">4,800,000 Finance Block</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 border-bottom">
+                    <div class="info">
+                        <div class="title">Standard</div>
+                        <div class="value">ERC20</div>
+                    </div>
+                </div>
+                <div class="col-md-4 border-bottom">
+                    <div class="info">
+                        <div class="title">Total Issue</div>
+                        <div class="value">60,000,00 Finance Block</div>
+                    </div>
+                </div>
+                <div class="col-md-4 border-bottom">
+                    <div class="info">
+                        <div class="title">For Public Sale</div>
+                        <div class="value">48,00,000 Finance Block</div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h4 class="text-center head-common">PUBLIC SALE COIN</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="public-box">
+                <div class="head">Total coin in publicITO Phase-1</div>
+                <div class="date">
+                  <div class="card__face__path"></div>
+                  <div class="card__face__from-to">
+                    <p>01 Nov 2018</p>
+                    <p>15 Nov 2018</p>
+                  </div>
+                </div>
+                  <div class="show-detail">
+                    <div class="column">
+                      <div class="title">Quantity</div>
+                      <div class="value">4,80,000</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Discount</div>
+                      <div class="value">20%</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Duration</div>
+                      <div class="value">15 Days</div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="public-box">
+                <div class="head">Total coin in publicITO Phase-1</div>
+                <div class="date">
+                  <div class="card__face__path"></div>
+                  <div class="card__face__from-to">
+                    <p>01 Nov 2018</p>
+                    <p>15 Nov 2018</p>
+                  </div>
+                </div>
+                  <div class="show-detail">
+                    <div class="column">
+                      <div class="title">Quantity</div>
+                      <div class="value">4,80,000</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Discount</div>
+                      <div class="value">20%</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Duration</div>
+                      <div class="value">15 Days</div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="public-box">
+                <div class="head">Total coin in publicITO Phase-1</div>
+                <div class="date">
+                  <div class="card__face__path"></div>
+                  <div class="card__face__from-to">
+                    <p>01 Nov 2018</p>
+                    <p>15 Nov 2018</p>
+                  </div>
+                </div>
+                  <div class="show-detail">
+                    <div class="column">
+                      <div class="title">Quantity</div>
+                      <div class="value">4,80,000</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Discount</div>
+                      <div class="value">20%</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Duration</div>
+                      <div class="value">15 Days</div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="public-box">
+                <div class="head">Total coin in publicITO Phase-1</div>
+                <div class="date">
+                  <div class="card__face__path"></div>
+                  <div class="card__face__from-to">
+                    <p>01 Nov 2018</p>
+                    <p>15 Nov 2018</p>
+                  </div>
+                </div>
+                  <div class="show-detail">
+                    <div class="column">
+                      <div class="title">Quantity</div>
+                      <div class="value">4,80,000</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Discount</div>
+                      <div class="value">20%</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Duration</div>
+                      <div class="value">15 Days</div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="public-box">
+                <div class="head">Total coin in publicITO Phase-1</div>
+                <div class="date">
+                  <div class="card__face__path"></div>
+                  <div class="card__face__from-to">
+                    <p>01 Nov 2018</p>
+                    <p>15 Nov 2018</p>
+                  </div>
+                </div>
+                  <div class="show-detail">
+                    <div class="column">
+                      <div class="title">Quantity</div>
+                      <div class="value">4,80,000</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Discount</div>
+                      <div class="value">20%</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Duration</div>
+                      <div class="value">15 Days</div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="public-box">
+                <div class="head">Total coin in publicITO Phase-1</div>
+                <div class="date">
+                  <div class="card__face__path"></div>
+                  <div class="card__face__from-to">
+                    <p>01 Nov 2018</p>
+                    <p>15 Nov 2018</p>
+                  </div>
+                </div>
+                  <div class="show-detail">
+                    <div class="column">
+                      <div class="title">Quantity</div>
+                      <div class="value">4,80,000</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Discount</div>
+                      <div class="value">20%</div>
+                    </div>
+                    <div class="column">
+                      <div class="title">Duration</div>
+                      <div class="value">15 Days</div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+         <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="table-responsive">
+                    <table id="recent-orders" class="table table-hover table-common mb-0">
+                        <thead>
+                            <tr>
+                                <th>Coin Sale</th>
+                                <th>Quantity</th>
+                                <th>Discount</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total coin in publicITO Phase-1</td>
+                                <td>4,80,000</td>
+                                <td>25%</td>
+                                <td>1st Nov.2018 12 GMT</td>
+                                <td>15st Nov.2018 12 GMT</td>
+                                <td>15 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Total coin in publicITO Phase-1</td>
+                                <td>4,80,000</td>
+                                <td>25%</td>
+                                <td>1st Nov.2018 12 GMT</td>
+                                <td>15st Nov.2018 12 GMT</td>
+                                <td>15 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Total coin in publicITO Phase-1</td>
+                                <td>4,80,000</td>
+                                <td>25%</td>
+                                <td>1st Nov.2018 12 GMT</td>
+                                <td>15st Nov.2018 12 GMT</td>
+                                <td>15 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Total coin in publicITO Phase-1</td>
+                                <td>4,80,000</td>
+                                <td>25%</td>
+                                <td>1st Nov.2018 12 GMT</td>
+                                <td>15st Nov.2018 12 GMT</td>
+                                <td>15 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Total coin in publicITO Phase-1</td>
+                                <td>4,80,000</td>
+                                <td>25%</td>
+                                <td>1st Nov.2018 12 GMT</td>
+                                <td>15st Nov.2018 12 GMT</td>
+                                <td>15 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Total coin in publicITO Phase-1</td>
+                                <td>4,80,000</td>
+                                <td>25%</td>
+                                <td>1st Nov.2018 12 GMT</td>
+                                <td>15st Nov.2018 12 GMT</td>
+                                <td>15 Days</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="video-stream-sec  page-section" id="live-stream">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 m-auto">
-                    <h4 class="common-big-heading text-center mb-5">Live Video Streaming</h4>
-                    <div class="bg-ifram">
-                        <iframe width="100%" height="290" src="https://www.youtube.com/embed/NwfeXdimOus"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                </div>
+<section class="sec-padd sec-pie">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="head-common wow slideInUp text-center">Token Distribution</h4>
+          </div>
+        </div>
+        <div class="row align-item-center mt-5">
+             <div class="col-md-7">
+               <div>
+                 <img src="../assets/images/other/tocan-allocation-img-new.png" width="800px">
+               </div>
+             </div>
+            <div class="col-md-5">
+               <div class="right-side-table">
+                   <table class="table">
+                      <thead>
+                        <tr>
+                          <th width="60%">Description</th>
+                          <th width="20%">In Million</th>
+                          <th width="20%">Percentage</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Total For Sale</td>
+                          <td>20</td>
+                          <td>6</td>
+                        </tr>
+                        <tr>
+                          <td>Referral Airdrop Rewards</td>
+                          <td>8</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <td>Management Allocation</td>
+                          <td>15</td>
+                          <td>4</td>
+                        </tr>
+                        <tr>
+                          <td>Finance Block Foundation</td>
+                          <td>38</td>
+                          <td>11</td>
+                        </tr>
+                        <tr>
+                          <td>R&D</td>
+                          <td>25</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <td>Rewards Distribution</td>
+                          <td>150</td>
+                          <td>43</td>
+                        </tr>
+                        <tr>
+                          <td>Airdrop Reload</td>
+                          <td>11</td>
+                          <td>3</td>
+                        </tr>
+                        <tr>
+                          <td>Expansion</td>
+                          <td>83</td>
+                          <td>24</td>
+                        </tr>
+                        <tr>
+                          <td>Total</td>
+                          <td>350</td>
+                          <td>100</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+               </div> 
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-
-    <section class="rocket-fuel-sec  page-section" id="team">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="extra-links social-links">
-                        <ul class="mb-0">
-                            <li>
-                                <a href="https://t.me/ETHEREUMBUCKEYETOKEN" target="_blank"><span><i
-                                            class="fab fa-telegram-plane"></i></span></a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/ethereumbuckeyetoken/?utm_medium=copy_link"
-                                    target="_blank"><span><i class="fab fa-instagram"></i></span></a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/ethereumbuckeye?s=11" target="_blank"><span><i
-                                            class="fab fa-twitter"></i></span></a>
-                            </li>
-                            <li>
-                                <a href="https://chat.whatsapp.com/KkU1XAxLqCh0bKoh50OIyj" target="_blank"><span><i
-                                            class="fab fa-whatsapp"></i></span></a>
-                            </li>
-
-
-                        </ul>
-                    </div>
-
-                    <h4 class="common-big-heading text-center mb-5">Our Team</h4>
-                </div>
+<section class="sec-padd sec-roadmap" id="Roadmap">
+  <div class="side-img"><img src="../assets/images/other/3.png"></div>
+  <div class="side-img1"><img src="../assets/images/other/new3.png"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h4 class="head-common wow slideInUp">Roadmap</h4>
+                <div class="fadeInUp wow txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.</div>
+                <!-- <div class="text-center">
+                  <img src="../assets/images/other/Road map@2x.png" class="road-img">
+                </div> -->
             </div>
-            <div class="row wow slideInUp">
-                <div class="col-md-3">
-                    <div class=" color-white">
-                        <div class="team-box-new">
-                            <img src="assets/images/Abu_Bakar.jpeg" class="img-fluid">
-                            <h5 class="sub-heading">Abu-Bakr Jackson</h5>
-                            <p>Co-Founder and President</p>
-                            <p>
-                                <a href="https://instagram.com/eandataxprep?utm_medium=copy_link" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
-                                <a href="https://www.linkedin.com/in/bakr-jackson-1a80b9218" target="_blank"><i
-                                        class="fab fa-linkedin"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class=" color-white">
-                        <div class="team-box-new">
-                            <img src="assets/images/David_Dahabiyeh.jpeg" class="img-fluid">
-                            <h5 class="sub-heading">David Dahabiyeh</h5>
-                            <p>Co-Founder and Vice President</p>
-                            <p>
-                                <a href="https://instagram.com/daviddahabiyeh?utm_medium=copy_link" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
-                                <a href="https://www.linkedin.com/in/david-dahabiyeh-b77259218" target="_blank"><i
-                                        class="fab fa-linkedin"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class=" color-white">
-                        <div class="team-box-new">
-                            <img src="assets/images/kind-soloman.png" class="img-fluid">
-                            <h5 class="sub-heading">Solomon X </h5>
-                            <p>Community Engagement</p>
-                            <p>
-                                <a href="https://instagram.com/king_soloman_x?utm_medium=copy_link" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
+            <div class="col-md-12">
+            	<!--<ul class="timeline">
+			        <li>
+			          <div class="timeline-image">
+			          	<div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">Q4</div>
+			          			<div class="year text-uppercase">2018</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			               
+			              <p class="text-muted">
+			                Smart Asset Managers (Finance Block)
+                            Name was created
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li class="timeline-inverted">
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">Q6</div>
+			          			<div class="year text-uppercase">2018</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			                Finance Block Initial Concept was
+                           Presented in KK Malaysia
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li>
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">Q8</div>
+			          			<div class="year text-uppercase">2018</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			                Smart Asset Managers formally
+                       registered entity name
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li class="timeline-inverted">
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">11</div>
+			          			<div class="year text-uppercase">2018</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			                Finance Block E Wallet research
+                          formally begun
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li>
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">Q2</div>
+			          			<div class="year text-uppercase">2019</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			                Finance Block E Wallet first
+                           version was introduced
+			              </p>
+			            </div>
+			          </div>
+			        </li>
+			        
+			        
+			        
+			      </ul>
+			      <ul class="timeline">
+			        <li>
+			          <div class="timeline-image">
+			          	<div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">Q3</div>
+			          			<div class="year text-uppercase">2019</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			               
+			              <p class="text-muted">
+			               Start of Finance Block Application
+                            Development on Android and iOS
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li class="timeline-inverted">
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">2-11</div>
+			          			<div class="year text-uppercase">2019</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			                Research and Development on
+                             Complimenting Ecosystem
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li>
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">11</div>
+			          			<div class="year text-uppercase">2019</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			             Finance Block Formally presented the
+                           overall structure of Finance Block Project
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li class="timeline-inverted">
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">01</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			             Finance Block Formally presented
+                           the overall structure
+                           of Finance Block Project
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li>
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">02</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+                                Finance Block Formally presented the
+                             overall structure of Finance Block Project
+			              </p>
+			            </div>
+			          </div>
+			        </li>
+			        
+			        
+			        
+			      </ul>
+			      
+			      <ul class="timeline">
+			        <li>
+			          <div class="timeline-image">
+			          	<div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">03</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			               
+			              <p class="text-muted">
+			              Successfully
+                            Completed Finance Block
+                             E Wallet Phase 1
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li class="timeline-inverted">
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">04</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			                Successfully Implemented
+                              Phase 2 Finance Block Development
 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class=" color-white">
-                        <div class="team-box-new">
-                            <img src="assets/images/JahX.jpeg" class="img-fluid">
-                            <h5 class="sub-heading">Jah X</h5>
-                            <p>Charitable Coordinator</p>
-                            <p>
-                                <a href="https://instagram.com/chefjah_216?utm_medium=copy_link" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
-                                <a href="http://www.linkedin.com/in/JahXBey" target="_blank"><i
-                                        class="fab fa-linkedin"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class=" color-white">
-                        <div class="team-box-new">
-                            <img src="assets/images/Levent-Taktas.jpeg" class="img-fluid">
-                            <h5 class="sub-heading">Levent Tektas </h5>
-                            <p>Graphic/NFT Designer</p>
-                            <p>
-                                <a href="https://instagram.com/levent_2x?utm_medium=copy_link" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
-                                <a href="https://www.linkedin.com/in/levent-tektas-292b07150" target="_blank"><i
-                                        class="fab fa-linkedin"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class=" color-white">
-                        <div class="team-box-new">
-                            <img src="assets/images/The-awakening-Agenda.png" class="img-fluid">
-                            <h5 class="sub-heading">The Awakening Agenda</h5>
-                            <p>BIO of charity’s accomplishments</p>
-                            <p>
-                                <a href="https://instagram.com/theawakeningagenda?utm_medium=copy_link"
-                                    target="_blank"><i class="fab fa-instagram"></i></a>
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li>
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">05</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			             We have successfully
+                           implemented the BUY option
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li class="timeline-inverted">
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">07</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			             Successfully Registred
+                       Finance BlockDT Digital Currency
+                             Exchanger
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li>
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">08</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+                               Successfully Signed
+                              Memorandum of Agreement Kpay
+			              </p>
+			            </div>
+			          </div>
+			        </li>
+			        
+			        
+			        
+			      </ul>-->
+			      
+			      
+			      
+			      <ul class="timeline">
+			        <li>
+			          <div class="timeline-image">
+			          	<div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">08</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			               
+			              <p class="text-muted">
+			             Successfully Signed a takeove
+                       venture with livestock grower
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li class="timeline-inverted">
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">09</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			               Initiated the new
+                           Finance Block modules
 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class=" color-white">
-                        <div class="team-box-new">
-                            <img src="assets/images/New-Era-Atlanta.jpeg" class="img-fluid">
-                            <h5 class="sub-heading">Jalil Omowale-Bey </h5>
-                            <p>President and Chairman of New Era Atlanta </p>
-                            <p>
-                                <a href="https://instagram.com/neweraatlanta?utm_medium=copy_link" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
-                                <a href="https://www.linkedin.com/in/jalil-omowale-bey-ba2512199" target="_blank"><i
-                                        class="fab fa-linkedin"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li>
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">10</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			             Formally submitted the
+                           Finance BlockDT BSP Application
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li class="timeline-inverted">
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">11</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+			             Migration of Finance Block Wallet
+                         to Blockchain Envirnoment
+			              </p>
+			            </div>
+			          </div>
+			          <div class="line"></div>
+			        </li>
+			        <li>
+			          <div class="timeline-image">
+			            <div href="javascript:void(0);" class="time-box">
+			          		<div class="time-txt">
+			          			<div class="title text-uppercase">12</div>
+			          			<div class="year text-uppercase">2020</div>
+			          		</div>
+			          		<img src="../assets/images/other/road_tile.png" alt="" class="img-fluid">
+			          	</div>
+			          </div>
+			          <div class="timeline-panel">
+			            <div class="timeline-body">
+			              <p class="text-muted">
+                               Compeletion of
+                             Finance Block Whitepaper &
+                              Implementation of BAWE
+			              </p>
+			            </div>
+			          </div>
+			        </li>
+			        
+			        
+			        
+			      </ul>
+			      
+			      
+			      
+			      
+			      
+			      
+			      
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<section class="sec-padd sec-media">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="head-common wow slideInUp text-center">Seen in media</h4>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%201@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%202@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+               <img src="../assets/images/icons/media%203@2x.png"> 
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%204@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%205@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%201@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%202@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+               <img src="../assets/images/icons/media%203@2x.png"> 
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%204@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%205@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%201@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%202@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+               <img src="../assets/images/icons/media%203@2x.png"> 
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%204@2x.png">
+            </div> 
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%205@2x.png">
+            </div>
+            <div class="col-md-3 col-6">
+                <img src="../assets/images/icons/media%201@2x.png">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sec-padd sec-refund">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="white-box text-center">
+          <h4 class="head-common wow slideInUp">Refund Policy</h4>
+          <div class="fadeInUp wow txt" >If Coin Purchaser wants to give back coins and get back his money so he can give us Finance Block Coins anytime and get his money back without any deductions. Read Terms and Conditions " Return Coins and Refund Money"</div>
+          <img src="../assets/images/other/blue design@2x.png" class="blue">
+          <img src="../assets/images/other/bluec.png" class="yellow">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-    <section class="newsletter-new page-section" id="contact">
-        <div class="container container-padding">
-            <div class="row">
-                <div class="col-md-6 m-auto">
-                    <div class="text-center">
-                        <p>Get Crypto analysis, news and updates</p>
-                        <h5>Sign up here so you don't miss a single newsletter</h5>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" onclick="show_alert()">
+<!-- <section class="sec-client-about">
+    <div class="container">
+        <div class="row">
+           
+            <div class="col-sm-12">
+                <img src="../assets/images/other/rommel.png" class="client-img wow slideInLeft">
+                <div class="wow slideInRight>
+                  <h5 class=" subtitle">CEO & Founder
+                  </h5>
+                  <h4 class=" head-common">Mr. Rommel Santos</h4>
+                  <div class="txt">
+                    <p>Mr. Rommel Santos is a savvy, inquisitive & high-caliber Filipino-native entrepreneur who is proclaimed as one of the exemplary figures in wide-spread applications of Blockchain technology in conventional business sectors covering entirety of Asia-Pacific. Mr. Santos founded Finance Block Digital Tech to promote technological gains from the recent Technological wonder- Blockchain.</p>
+                    <p> A reputed Alumnus from the most prestigious academic institution in Philippines, Mr. Santos holds the leading position of - President and CEO of Integrated Laser and Complementary Medicine (ILACM), which promotes a well-managed and effective modality, designed to complement existing medical health regimes of people with recurring medical illnesses. One of the leading Russian manufacturing firms has appointed ILACM as the exclusive distributor of some of its state-of-the-art devices such as the INTRAVENOUS LASER and TRANSCUTANEOUS LASER (Low level) devices and Cancer Treatment. PHOTODYNAMIC THERAPY and BIOTHERAPY were also introduced.</p>
+                    <p> Mr. Santos is a strong advocate of equitable opportunity creation for sustenance of economic growth with diverse adoption of Blockchain Technology and capitalization of its advantages, such as: faster and efficient transactions, global exchanger, high security, Decentralized Autonomous Organization (DAO) through the Proof of Authority (PoA), distributed database through delegates (Block Producer) and allied suitability for micro payments.</p>
+                  </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section> -->
 
-                                    Subscribe
+<section class="sec-padd sec-team" id="Team">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="wow slideInUp subtitle">THE TEAM BEHIND THE PROJECT</div>
+                <h4 class="head-common wow slideInUp">Team</h4>
+                <div class="txt">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md col-sm-6 col-6">
+               <div class="teampim">
+                <img src="../assets/images/team/11864.png">
+                <div class="ablin">
+                    <img src="../assets/images/icons/linked in@2x.png">
+                </div>
+                </div>
+                <div class="name">RAZALI HJ RAONA</div>
+                <div class="post">CEO</div>
+            </div>
+            <div class="col-md col-sm-6 col-6">               
+                <div class="teampim">
+                <img src="../assets/images/team/79278.png">
+                <div class="ablin">
+                    <img src="../assets/images/icons/linked in@2x.png">
+                </div>
+                </div>
+                <div class="name">ABIDIN ZAINAL</div>
+                <div class="post">PRESIDENT</div>
+            </div>
+            <div class="col-md col-sm-6 col-6">
+               <div class="teampim">
+                <img src="../assets/images/team/61625.jpg">
+                <div class="ablin">
+                    <img src="../assets/images/icons/linked in@2x.png">
+                </div>
+                </div>
+                <div class="name">VP GLOBAL MARKETING</div>
+                <div class="post">DIEGO JOSE RAMOS</div>
+            </div>
+            <div class="col-md col-sm-6 col-6">
+               <div class="teampim">
+                <img src="../assets/images/team/50553.png">
+                <div class="ablin">
+                    <img src="../assets/images/icons/linked in@2x.png">
+                </div>
+                </div>
+                <div class="name">DAUD HAMZAH</div>
+                <div class="post">CHIEF OPERATING OFFICER</div>
+            </div>
+            <div class="col-md col-sm-6 col-6">
+               <div class="teampim">
+                <img src="../assets/images/team/17212.jpeg">
+                <div class="ablin">
+                    <img src="../assets/images/icons/linked in@2x.png">
+                </div>
+                </div>
+                <div class="name">REITZ JAKARIA</div>
+                <div class="post">VICE-PRESIDENT for ADMINISTRATION</div>
+            </div>
+            <div class="col-md col-sm-6 col-6">
+               <div class="teampim">
+                <img src="../assets/images/team/88289.png">
+                <div class="ablin">
+                    <img src="../assets/images/icons/linked in@2x.png">
+                </div>
+                </div>
+                <div class="name">ATTY. JOANNE SUAREZ</div>
+                <div class="post">CORPORATE SECRETARY</div>
+            </div>
+           
+        </div>
+       
+    </div>
+</section>
 
 
-                                </button>
+
+
+
+<section class="sec-padd sec-faq" id="Faq">
+    <div class="side-img"><img src="../assets/images/other/new3.png"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4 class="head-common wow slideInUp">| Frequently asked<br>questions</h4>
+                        <div class="sub-txt wow slideInUp">Need more help? Contact us at info@asgresearch.com</div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="accordion" id="accordionExample">
+                        <div class="card">
+                          <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Collapsible Group Item #1
+                              </button>
+                            </h5>
+                          </div>
+
+                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                             </div>
+                          </div>
                         </div>
+                        <div class="card">
+                          <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Collapsible Group Item #2
+                              </button>
+                            </h5>
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Collapsible Group Item #3
+                              </button>
+                            </h5>
+                          </div>
+                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                
                     </div>
                 </div>
             </div>
-
         </div>
-    </section>
+    </div>
+</section>
 
-
-
-    <footer class="footer-box">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <div class="copy-right ">
-                        <p class="text-left">© Copyright 2021 - All Rights reserved by <a
-                                href="http://questglt.com/">Quest Global Technologies</a></p>
+<section class="sec-padd sec-touch">
+    <div class="side-img"><img src="../assets/images/other/3.png"></div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-8 offset-md-2">
+                <h4 class="head-common wow slideInUp">Get in Touch</h4>
+                <div class="txt wow slideInUp">Finance Block Research is the smartest thing you can do with your money. In just five minutes you can open a portfolio that makes your money work harder for you.</div>
+            </div>
+            <div class="col-md-12">
+                <form class="getinform">
+                    <div class="form-group">
+                        <input class="form-control" name="first_name" data-rule-required="true" data-msg-required="Please Enter Your Name." placeholder="Full name" type="text">
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="extra-links social-links">
-                        <ul class="mb-0">
-                            <li>
-                                <a href="https://t.me/ETHEREUMBUCKEYETOKEN" target="_blank"><span><i
-                                            class="fab fa-telegram-plane"></i></span></a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/ethereumbuckeyetoken/?utm_medium=copy_link"
-                                    target="_blank"><span><i class="fab fa-instagram"></i></span></a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/ethereumbuckeye?s=11" target="_blank"><span><i
-                                            class="fab fa-twitter"></i></span></a>
-                            </li>
-                            <li>
-                                <a href="https://chat.whatsapp.com/KkU1XAxLqCh0bKoh50OIyj" target="_blank"><span><i
-                                            class="fab fa-whatsapp"></i></span></a>
-                            </li>
+                    <div class="form-group">
+                        <input class="form-control" name="user_email" data-rule-required="true" data-msg-required="Please Enter Your Email." data-rule-email="true" data-msg-email="Please enter a valid email address" placeholder="Enter email address" type="email">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control msg"  placeholder="Message" type="text"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="getinbtn">send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section class="sectioncontus" id="Contact">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                 <div class="white-box">
+                 <div class="contactcont">
+                 <h4 class="head-common wow slideInUp mb-2">Contact us now</h4>
+                 <p>Finance Block Research & Media Services Pvt. Ltd.</p>
+                 <div class="table-responsive">
+                   <table class="table-contact table">
+                       <tbody>
+                           <tr>
+                               <td width="20%">Address:</td>
+                               <td width="80%">400 Cranbourne-Frankston Road, Lanwarrin 3910 Vic AUSTRALIA.<br>West Gate Suites Building
+                                286 Central Business District
+                                Subic Bay Freeport Zone 2222.</td>
+                           </tr>
+                            <tr>
+                               <td width="20%">Contact :</td>
+                               <td width="80%">(+61) 420 575 422 | (+63) 919 0098 037 |<br> (+60) 19 899 8843</td>
+                           </tr>
+                           <tr>
+                               <td width="20%">Email :</td>
+                               <td width="80%">info@smartassetmanagers.com</td>
+                           </tr>
+                           <tr>
+                               <td width="20%">Website :</td>
+                               <td width="80%">www.asgresearch.com</td>
+                           </tr>
+                       </tbody>
+                   </table>
+                   </div>
+               </div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+               <div class="map">
+                  <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.267976677324!2d75.84242931450162!3d22.718278985107982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963027f1073ddf3%3A0x92c0a4d022595d73!2sPushpRatan+Foods+India+Pvt.Ltd!5e0!3m2!1sen!2sin!4v1539585768837" width="100%" height="360" frameborder="0" style="border:0" allowfullscreen></iframe>-->
 
-                        </ul>
+                   <div style="width: 100%"><iframe width="100%" height="360" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=400%20Cranbourne-Frankston%20Road,%20Lanwarrin%203910%20Vic%20AUSTRALIA.+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.maps.ie/route-planner.htm">Google Route Planner</a></div>
+               </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sec-padd pb-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="subnwscont">
+                    <h4 class="head-common wow slideInUp text-center">Subscribe to our newsletter</h4>
+                    <div class="txt">Finance Block Research is the smartest thing you can do with your money.<br> In just five minutes you can open a portfolio that makes your money work harder for you.</div>
+                    <div class="cnsub common-input">
+                            <input class="form-control" placeholder="hello@youremail.com" type="text">
+                            <button class="btn btn-common" type="button">Register</button>
                     </div>
                 </div>
             </div>
-
         </div>
-    </footer>
-
-    <a href="#" class="scroll_top" title="Scroll to Top" style="display: block;"><i class="fas fa-arrow-up"></i></a>
-    <!-- JQuery -->
-    <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
-    <!-- <script type="text/javascript" src="../assets/js/jquery-1.11.3.min.js"></script> -->
-    <!-- Bootstrap Core JavaScript -->
-    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-    <!-- dropdownhover effects JavaScript -->
-    <script type="text/javascript" src="../assets/js/bootstrap-dropdownhover.min.js"></script>
-    <!-- wow JavaScript -->
-    <script type="text/javascript" src="../assets/js/wow.min.js"></script>
-    <!-- slick JavaScript -->
-    <script type="text/javascript" src="../assets/js/slick.js"></script>
-    <script type="text/javascript" src="../assets/js/slick.min.js"></script>
-
-    <!-- Custom JavaScript -->
-    <script type="text/javascript" src="../assets/js/custom.js"></script>
-    <script type="text/javascript">
-        $(".banner-slider").slick({
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            infinite: true,
-            arrows: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        centerMode: false,
-                        centerPadding: '40px',
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        arrows: false,
-                        centerMode: false,
-                        centerPadding: '40px',
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-        });
+    </div>
+</section>
 
 
-
-        $(".partner-slider").slick({
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            infinite: true,
-            arrows: false,
-            slidesToShow: 5,
-            slidesToScroll: 5,
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: false,
-                        centerMode: false,
-                        centerPadding: '40px',
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        dots: false,
-                        arrows: false,
-                        centerMode: false,
-                        centerPadding: '40px',
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-        });
-
-    </script>
-    <script>
-        $("#main-nav li .nav-close").click(function (event) {
-            $(".navbar-collapse").collapse('hide');
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(window).scroll(function () {
-            var scrollDistance = $(window).scrollTop();
-            $('.page-section').each(function (i) {
-                if ($(this).position().top <= scrollDistance + 100) {
-                    $('.navigation li.active').removeClass('active');
-                    $('.navigation li').eq(i).addClass('active');
-                }
-            });
-        }).scroll();
-    </script>
-    <script type="text/javascript">
-        var main_url = window.location.href.split("#")[0];
-        var hash_tag = window.location.href.split("#")[1];
-
-        if (hash_tag != '' && hash_tag != undefined) {
-            window.location.href = main_url;
-        }
-    </script>
-    <script>
-        function show_alert() {
-            if (!confirm("Thankyou!, You have been subscribed for our news letters. Stay Tuned!!!")) {
-                return false;
-            }
-            this.form.submit();
-        }
-    </script>
-    <script>
-
-        // Set the date we're counting down to
-        var countDownDate = new Date("1 Sept, 2021 12:00:00").getTime();
-
-        // Update the count down every 1 second
-        var x = setInterval(function () {
-
-            // Get todays date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now an the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            //Zeros
-            var hours = (hours.toLocaleString(undefined, { minimumIntegerDigits: 2 }));
-
-            var minutes = (minutes.toLocaleString(undefined, { minimumIntegerDigits: 2 }));
-
-            var seconds = (seconds.toLocaleString(undefined, { minimumIntegerDigits: 2 }));
+<%- include('index_footer') %>
 
 
-
-            // Display the result in the element with id="demo"
-            document.getElementById("daysTicker").innerHTML = days;
-            document.getElementById("hoursTicker").innerHTML = hours;
-            document.getElementById("minsTicker").innerHTML = minutes;
-            document.getElementById("secsTicker").innerHTML = seconds;
-
-            // If the count down is finished, write some text 
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "THE CAMPAIGN BEGINS";
-            }
-        }, 1000);
-
-    </script>
-</body>
-
-</html>

@@ -3,6 +3,9 @@ var router = express.Router();
 const moment = require('moment');
 const auth = require('../config/auth');
 const web3 = require('web3');
+const fs = require('fs');
+const qr = require('qr-image');
+const QRCode = require('qrcode');
 const crypto = require('crypto');
 const Tx = require('ethereumjs-tx');
 const userServices = require("../services/userServices");
@@ -43,11 +46,11 @@ router.get('/receive-ebt', isUser, function (req, res) {
           let wallet_details = response;
           let qr_txt = wallet_details.wallet_address;
           // var qr_png = qr.imageSync(qr_txt, { type: 'png' })
-          let qr_code_file_name = new Date().getTime() + '.png';
+          // let qr_code_file_name = new Date().getTime() + '.png';
           // fs.writeFileSync('./public/wallet_qr_image/' + qr_code_file_name, qr_png, (err) => {
-            // if (err) { console.log(err); }
+          //   if (err) { console.log(err); }
           // });
-          res.render('receive', { err_msg, success_msg, wallet_details, qr_code_file_name, layout: false, session: req.session });
+          res.render('receive', { err_msg, success_msg, wallet_details, qr_txt, layout: false, session: req.session });
         }
       }
     });
@@ -140,12 +143,12 @@ router.post('/update-profile', isUser, async function (req, res) {
   let name = req.body.name.trim();
   let email = req.body.email.trim();
   let mob = req.body.mob.trim();
-  // let country = req.body.country.trim();
+  let country = req.body.country.trim();
 
   let status = await userServices.updateARTUser(email, name);
   console.log(status);
   if (status == 1) {
-    Registration.update({ _id: user_id }, { $set: { name: name, email: email, mobile_no: mob} }, { upsert: true }, function (err, result) {
+    Registration.update({ _id: user_id }, { $set: { name: name, email: email, mobile_no: mob, country: country} }, { upsert: true }, function (err, result) {
       if (err) {
         console.log("Something went wrong");
         req.flash('err_msg', 'Something went wrong, please try again.');
@@ -161,64 +164,6 @@ router.post('/update-profile', isUser, async function (req, res) {
     res.redirect('/profile');
   }
 });
-
-// // //***************** post changes password **************//
-// router.post('/submit-change-pass', isUser, function (req, res) {
-//   if (req.body.new_password == req.body.new_password2) {
-//     var user_id = req.session.re_us_id;
-//     var old_pass = req.body.password;
-//     var mykey1 = crypto.createCipher('aes-128-cbc', 'mypass');
-//     var mystr1 = mykey1.update(old_pass, 'utf8', 'hex')
-//     mystr1 += mykey1.final('hex');
-//     Registration.find({ '_id': user_id, 'password': mystr1 }, async function (err, result) {
-//       if (err) {
-//         req.flash('err_msg', 'Something is worng');
-//         res.redirect('/profile');
-//       } else {
-//         if (result.length > 0 && result.length == 1) {
-//           var check_old_pass = result[0].password;
-//           var mykey2 = crypto.createCipher('aes-128-cbc', 'mypass');
-//           var new_pass = mykey2.update(req.body.new_password, 'utf8', 'hex')
-//           new_pass += mykey2.final('hex');
-
-//           if (mystr1 != new_pass) {
-//             // console.log(result);
-//             let status = await userServices.updateARTPass(email, req.body.new_password);
-//             console.log(status);
-//             if (status == 1) {
-//               Registration.update({ _id: user_id }, { $set: { password: new_pass } }, { upsert: true }, function (err) {
-//                 if (err) {
-//                   req.flash('err_msg', 'Something went wrong.');
-//                   res.redirect('/profile');
-//                 } else {
-//                   req.flash('success_msg', 'Password changed successfully.');
-//                   res.redirect('/profile');
-//                 }
-//               });
-//             }
-//             else {
-//               req.flash('err_msg', 'Something went wrong.');
-//               res.redirect('/profile');
-//             }
-//           }
-//           else {
-//             req.flash('err_msg', 'New password can not be same as current password.');
-//             res.redirect('/profile');
-//           }
-//         }
-//         else {
-//           req.flash('err_msg', 'Please enter correct current password.');
-//           res.redirect('/profile');
-//         }
-//       }
-//     });
-//   }
-//   else {
-//     req.flash('err_msg', 'Password and Confirm password do not match.');
-//     res.redirect('/profile');
-//   }
-// });
-
 
 //***************** post changes password **************//
 router.post('/submit-change-pass', isUser, function (req, res) {
@@ -384,48 +329,6 @@ router.get('/transaction-table', isUser, function (req, res) {
 //     }
 
 
-//   }
-// });
-
-
-// router.get('/buy-coin', isUser, async function (req, res) {
-//   error = req.flash('err_msg');
-//   success = req.flash('success_msg');
-//   var test = req.session.is_user_logged_in;
-//   if (test != true) {
-//     res.redirect('/Login');
-//   } else {
-//     var user_id = req.session.re_us_id;
-//   Tokensettings.findOne().then(btcresult => {  
-//     // var btc = btcresult.btcValue;
-//     var eth = btcresult.etherValue;
-//     Importwallet.findOne({ 'user_id': user_id, 'login_status': 'login' }, function (err, loginwallet) {
-//       if (err) {
-//         console.log("Something went wrong");
-//       }
-//       else {
-//         if (loginwallet != "" && loginwallet != undefined) {
-//           Userwallet.findOne({ '_id': loginwallet.wallet_id }, function (err, result) {
-//             if (err) { console.log("Something went wrong"); }
-//             else {
-//               wallet_details = result;
-//               import_wallet_id = loginwallet._id;
-//               let wallet_creation = result.created_at;
-//               let indiaTime = new Date().toLocaleString("en-US", { timeZone: "Europe/London" });
-//               indiaTime = new Date(indiaTime);
-//               let today = indiaTime.toLocaleString();
-//               let wallet_time_difference = calculateHours(new Date(wallet_creation), new Date(today));
-//               // let rown_bal = coinBalanceBNB(wallet_details.wallet_address);
-//               res.render('buy-coin', { error, success, wallet_details,  import_wallet_id,  layout: false, session: req.session, crypto,eth })
-//             }
-//           });
-//         }
-//         else {
-//           req.flash('err_msg', 'Sorry!, please import or create a wallet first.');
-//           res.redirect('/dashboard');
-//         }
-//       }
-//     })
 //   }
 // });
 

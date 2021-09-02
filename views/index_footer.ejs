@@ -1,0 +1,239 @@
+<footer class="footer-main">
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h4 class="head-common wow slideInUp">Follow us on</h4>
+            </div>
+            <div class="col-md-12">
+                <ul class="socmeul">
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../assets/images/icons/facebook@2x.png">
+                        </a>
+                        facebook
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../assets/images/icons/twitter@2x.png">
+                        </a>
+                        twitter
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../assets/images/icons/instagram@2x.png">
+                        </a>
+                        instagram
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../assets/images/icons/telegram@2x.png">
+                        </a>
+                        telegram
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-12 p-0">
+                <div class="copyrgtcont">
+                    Copyright 2021 | Finance Block Services Pvt.Ltd.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
+        <!-- JQuery -->
+        <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+        <!-- dropdownhover effects JavaScript -->
+        <script type="text/javascript" src="../assets/js/bootstrap-dropdownhover.min.js"></script>
+        <!-- Slick JavaScript -->
+        <script type="text/javascript" src="../assets/slick/slick.min.js"></script>
+        <script type="text/javascript">
+          $('.regular').slick({
+              dots: false,
+              infinite: true,
+              speed: 300,
+              autoplay: true,
+              autoplaySpeed: 2000,
+              slidesToShow: 5,
+              slidesToScroll: 1,
+              arrows: false,
+              responsive: [
+                {
+                  breakpoint: 992,
+                  settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                  }
+                },
+                {
+                  breakpoint: 768,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                  }
+                },
+                {
+                  breakpoint: 576,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
+            });
+        </script>
+        <script type="text/javascript">
+            // js for main slider
+            $('#owl-feature').slick({
+                dots: true,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 2000,
+              });
+        </script>
+        <!-- wow JavaScript -->
+        <script type="text/javascript" src="../assets/js/wow.min.js"></script>
+        <!-- jquery-ui -->
+        <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
+        <script type="text/javascript">
+          var imageUrl = new Array();
+
+                imageUrl[0] = '../assets/images/other/graph0.png';
+
+                imageUrl[1] = '../assets/images/other/graph1.png';
+
+                imageUrl[2] = '../assets/images/other/graph2.png';
+
+                imageUrl[3] = '../assets/images/other/graph3.png';
+
+                imageUrl[4] = '../assets/images/other/graph4.png';
+
+                imageUrl[5] = '../assets/images/other/graph5.png';
+
+                imageUrl[6] = '../assets/images/other/graph6.png';
+
+                imageUrl[7] = '../assets/images/other/graph7.png';
+                
+               
+        $(document).on('input change', '#slider', function() {//listen to slider changes
+          
+            var v=$(this).val();//getting slider val
+           $('#sliderStatus').html( $(this).val() );
+          $("#img").prop("src", imageUrl[v]);
+        });
+        </script>
+        
+        <!-- Custom JavaScript -->
+        <!-- <script type="text/javascript">
+          $(document).ready(function() {
+            $(".time-box").hover(function(){
+              $(this).parent().parent().find('.timeline-panel').toggleClass("show");
+            });
+          });
+        </script> -->
+        <script type="text/javascript" src="../assets/js/custom.js"></script>
+        <script>
+            window.onbeforeunload = function () {
+                  window.scrollTo(0, 0);
+                }
+        </script>
+        <script type="text/javascript">
+          $(document).ready(function() {
+  
+            var headerHeight = $('header').outerHeight(); // Target your header navigation here
+            
+            $('#main-nav li a').click(function(e) {
+              
+              var targetHref   = $(this).attr('href');
+              
+            $('html, body').animate({
+              scrollTop: $(targetHref).offset().top - headerHeight // Add it to the calculation here
+            }, 1000);
+              
+              e.preventDefault();
+            });
+          });
+        </script>
+         <script>
+           $("#main-nav li a").click(function(event) {
+                $(".navbar-collapse").collapse('hide');
+            });
+        </script>
+            <script>
+            $( function() {
+              $( "#slider-year" ).slider({
+                range: "max",
+                min: 0,
+                max: 5,
+                value: 2,
+                slide: function( event, ui ) {
+                  $( "#amount" ).val( ui.value );
+                }
+              });
+              $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+            } );
+            </script>
+
+            <script>
+            $( function() {
+              $( "#slider-value" ).slider({
+                range: "max",
+                min: 0,
+                max: 5,
+                value: 2,
+                slide: function( event, ui ) {
+                  $( "#amount" ).val( ui.value );
+                }
+              });
+              $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+            } );
+            </script>
+
+            <script>
+             
+            // Set the date we're counting down to
+                    var countDownDate = new Date("9 Sept, 2021 12:00:00").getTime();
+
+                    // Update the count down every 1 second
+                    var x = setInterval(function() {
+
+                      // Get todays date and time
+                      var now = new Date().getTime();
+
+                      // Find the distance between now an the count down date
+                      var distance = countDownDate - now;
+
+                      // Time calculations for days, hours, minutes and seconds
+                      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                      var seconds = Math.floor((distance % (1000 * 60)) / 1000); 
+                      
+                      //Zeros
+                    var hours = (hours.toLocaleString(undefined,{minimumIntegerDigits: 2}));  
+                      
+                    var minutes = (minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}));
+                      
+                    var seconds = (seconds.toLocaleString(undefined,{minimumIntegerDigits: 2}));
+                      
+                     
+                      
+                      // Display the result in the element with id="demo"
+                      document.getElementById("daysTicker").innerHTML = days;
+                      document.getElementById("hoursTicker").innerHTML = hours;
+                      document.getElementById("minsTicker").innerHTML = minutes;
+                      document.getElementById("secsTicker").innerHTML = seconds;
+                      
+                      // If the count down is finished, write some text 
+                      if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown").innerHTML = "THE CAMPAIGN BEGINS";
+                      }
+                    }, 1000);
+
+            </script>
+</body>
+</html>
