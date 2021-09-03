@@ -45,9 +45,9 @@
           </div> -->
           <div class="white-box text-center">
           <div class="user-ath-box">
-            <h4 style="color: #fff;">Please enter the OTP to verify your account.</h4>
+            <h4 style="color: #000;">Please enter the OTP to verify your account.</h4>
 
-            <p style="color: #fff;">An One Time Password sent to your e-mail address</p>
+            <p style="color: #000;" class="mb-3">An One Time Password sent to your e-mail address</p>
             <% if(err_msg!=undefined){ %>
                 <span class="error_validate flash_msg"><%= err_msg %></span>
               <% }%>
@@ -60,7 +60,7 @@
                     <input type="text" class="form-control input-bordered" placeholder="Enter OTP" name='otp' id='otp' data-rule-required="true"  data-msg-required="Please enter OTP.">
                 </div>
                 <div class="gaps"></div>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-center mt-3 align-items-center">
                     <button type="submit" class="btn btn-sign" id="submit_verify_account">Submit</button>
                 </div>
             </form>
