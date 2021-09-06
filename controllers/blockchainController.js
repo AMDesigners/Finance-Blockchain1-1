@@ -62,8 +62,8 @@ const verifyWallet = async (req, res) => {
 //                 let userRefer = await userServices.checkUserReferCode(user.ref_from);
 //                 let subject = 'Referral bonus credited.'
 //                 let text = 'Hello '+ user.email + ',<br><br>\n\n' +
-//                 'Congratulations we have credited your $EBT account by 10 $EBT (worth US$10) as your friend signed up using your referral code!<br><br>\n\n' + 
-//                 'Earn more $EBT by referring your friends and stand a chance to win exclusive ebt NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTheebt Team<br>\nhttps://ebtico.com';
+//                 'Congratulations we have credited your $FBT account by 10 $FBT (worth US$10) as your friend signed up using your referral code!<br><br>\n\n' + 
+//                 'Earn more $FBT by referring your friends and stand a chance to win exclusive FBT NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTheFBT Team<br>\nhttps://ebtico.com';
 //                 await mail(user.email, subject, text);
 //                 let userReferred = await userServices.checkUserWallet(userRefer._id);
 //                 let referAddress = userReferred.wallet_address;
@@ -106,18 +106,18 @@ const submitWallet = async (req, res) => {
                     // let hashObject = await AdminCoinTransfer(address, referReward);
                     sendReward = sendReward + parseInt(referReward);
                     // let hash = hashObject.transactionHash;
-                    // await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash, referReward, 'ebt');
+                    // await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash, referReward, 'FBT');
                     let userRefer = await userServices.checkUserReferCode(user.ref_from);
                     let subject = 'Referral bonus credited.'
                     let text = 'Hello '+ user.email + ',<br><br>\n\n' +
-                     'Congratulations we have credited your $EBT account by 5 $EBT (worth US$5) as your friend signed up using your referral code!<br><br>\n\n' + 
-                     'Earn more $EBT by referring your friends and stand a chance to win exclusive $EBT NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTeam Finance Blockchain<br>\nhttps://ebtico.com';
+                     'Congratulations we have credited your $FBT account by 5 $FBT (worth US$5) as your friend signed up using your referral code!<br><br>\n\n' + 
+                     'Earn more $FBT by referring your friends and stand a chance to win exclusive $FBT NFTs !!' + '<br><br>\n\n' + 'Regards,<br>\nTeam Finance Blockchain<br>\nhttps://ebtico.com';
                     await mail(user.email, subject, text);
                     let userReferred = await userServices.checkUserWallet(userRefer._id);
                     let referAddress = userReferred.wallet_address;
                     let hashObject2 = await AdminCoinTransfer(referAddress, referReward);
                     let hash2 = hashObject2.transactionHash;
-                    await blockchainServices.addTransaction(userRefer._id, userReferred._id, adminAddress, referAddress, hash2, referReward, '$EBT');
+                    await blockchainServices.addTransaction(userRefer._id, userReferred._id, adminAddress, referAddress, hash2, referReward, '$FBT');
                     if(hashObject2){
                         await userServices.refUpdate(user.ref_code, user.ref_from);
                     }
@@ -127,7 +127,7 @@ const submitWallet = async (req, res) => {
                 let hashObject3 = await AdminCoinTransfer(address, finalSend);
                 console.log(finalSend,'-------------------finalSend',typeof finalSend);
                 let hash3 = hashObject3.transactionHash;
-                await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash3, finalSend, '$EBT');
+                await blockchainServices.addTransaction(user_id, walletData._id, adminAddress, address, hash3, finalSend, '$FBT');
                 let userwallet = await blockchainServices.userWalletFindWallet(address);
                 await blockchainServices.importWalletEntry(user_id, userwallet._id, created);
                 res.redirect('/Create-wallet-success?wallet=' + Buffer.from(address).toString('base64'));
@@ -167,8 +167,8 @@ const submitWallet = async (req, res) => {
 //     else {
 //         let balance = await blockchainServices.getCoinBalance(sender_address);
 //         if (balance < parseInt(coinFees)){
-//             req.flash('err_msg', "Insufficient ebt fees In Your account.");
-//             res.redirect('/Send-ebt?walletid=' + wallet_id + '&type=' + type);
+//             req.flash('err_msg', "Insufficient FBT fees In Your account.");
+//             res.redirect('/Send-fbt?walletid=' + wallet_id + '&type=' + type);
 //         }
 //         if(type == 'eth'){
 //             balance = await balanceMainETH(sender_address);
@@ -181,15 +181,15 @@ const submitWallet = async (req, res) => {
 //                 let balance2 = await balanceMainBNB(sender_address);
 //                 if(0.05 > parseInt(balance) && type == 'eth'){
 //                     req.flash('err_msg', 'Do not have fees to propose this transaction.');
-//                     res.redirect('/Send-ebt?walletid=' + wallet_id + '&type=' + type);
+//                     res.redirect('/Send-fbt?walletid=' + wallet_id + '&type=' + type);
 //                 }
 //                 else if(0.01 > parseInt(balance) && type == 'bnb'){
 //                     req.flash('err_msg', 'Do not have fees to propose this transaction.');
-//                     res.redirect('/Send-ebt?walletid=' + wallet_id + '&type=' + type);
+//                     res.redirect('/Send-fbt?walletid=' + wallet_id + '&type=' + type);
 //                 }
-//                 else if(0.01 > parseInt(balance2) && type == 'ebt'){
+//                 else if(0.01 > parseInt(balance2) && type == 'fbt'){
 //                     req.flash('err_msg', 'Do not have fees to propose this transaction.');
-//                     res.redirect('/Send-ebt?walletid=' + wallet_id + '&type=' + type);
+//                     res.redirect('/Send-fbt?walletid=' + wallet_id + '&type=' + type);
 //                 }
 //                 else{
 //                     var send_obj = {
@@ -206,19 +206,19 @@ const submitWallet = async (req, res) => {
 //                     let text = 'Hello '+ req.session.re_usr_email + ',<br><br>\n\n' +
 //                         'Your one-time password (OTP) for withdrawal is: <strong>' + otp +
 //                         '</strong><br><br>\n\n' + 'This would be valid for only for the next 10 minutes<br><br>\n\n' + 
-//                         'If this withdrawal attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nTeam THEebt<br>\nhttps://ebtico.com';
+//                         'If this withdrawal attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nTeam THEfbt<br>\nhttps://ebtico.com';
 //                     await mail(req.session.re_usr_email, subject, text);
 //                     res.redirect('/verify_2fa');
 //                 }
 //             }
 //             else {
 //                 req.flash('err_msg', 'Please enter valid passphrase.');
-//                 res.redirect('/Send-ebt?walletid=' + wallet_id + '&type=' + type);
+//                 res.redirect('/Send-fbt?walletid=' + wallet_id + '&type=' + type);
 //             }
 //         }
 //         else {
 //             req.flash('err_msg', "Insufficient "+type+" In Your account.");
-//             res.redirect('/Send-ebt?walletid=' + wallet_id + '&type=' + type);
+//             res.redirect('/Send-fbt?walletid=' + wallet_id + '&type=' + type);
 //         }
 //     }
 // }

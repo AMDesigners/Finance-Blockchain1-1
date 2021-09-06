@@ -31,7 +31,7 @@ router.get('/login', userControllers.loginPage);
 router.get('/logout', userControllers.logout);
 
 //***************** get recive-rowan **************//
-router.get('/receive-ebt', isUser, function (req, res) {
+router.get('/receive-fbt', isUser, function (req, res) {
   err_msg = req.flash('err_msg');
   success_msg = req.flash('success_msg');
   var walletid = req.query.walletid;
@@ -60,7 +60,7 @@ router.get('/receive-ebt', isUser, function (req, res) {
 
 // router.get('/receive', userControllers.ReceivePage);
 
-router.get('/send-EBT', userControllers.sendPage);
+router.get('/send-FBT', userControllers.sendPage);
 
 router.get('/signup', userControllers.signupPage);
 
@@ -82,7 +82,7 @@ router.get('/terms-condition', function (req, res) {
   res.render('terms-condition');
 });
 
-router.get('/send-EBT', userControllers.sendPage);
+router.get('/send-FBT', userControllers.sendPage);
 //***************** get create wallet **************//
 router.get('/Create-wallet', isUser, blockchainController.createWallet);
 
@@ -288,7 +288,7 @@ router.get('/transaction-table', isUser, function (req, res) {
 });
 
 //***************** get Send-rowan **************//
-// router.get('/send-EBT', isUser, async function (req, res) {
+// router.get('/send-FBT', isUser, async function (req, res) {
 //   let err_msg = req.flash('err_msg');
 //   let success_msg = req.flash('success_msg');
 //   let walletid = req.query.walletid;
@@ -322,7 +322,7 @@ router.get('/transaction-table', isUser, function (req, res) {
 //         value = 1 / usdValue;
 //       }
 //       value = Math.round(value * 100) / 100;
-//       res.render('/send-EBT', { err_msg, success_msg, walletdetails, layout: false, session: req.session, coinbalance, type, walletid, value, usdValue, etherValue, bnbValue });
+//       res.render('/send-FBT', { err_msg, success_msg, walletdetails, layout: false, session: req.session, coinbalance, type, walletid, value, usdValue, etherValue, bnbValue });
 //     }
 //     else {
 //       console.log("somethig went wrong with login status")
@@ -340,8 +340,8 @@ router.get('/buy-coin', isUser, function (req, res) {
   success = req.flash('success_msg');
   var user_id = req.session.re_us_id;
   Tokensettings.findOne().then(btcresult => {
-    var ebt = btcresult.etherValue;
-    var tebt=ebt*0.0000000065;
+    var fbt = btcresult.etherValue;
+    var tfbt=fbt*0.0000000065;
     Importwallet.findOne({ 'user_id': user_id, 'login_status': 'login' }, function (err, loginwallet) {
       if (err) {
         console.log("Something went wrong");
@@ -352,7 +352,7 @@ router.get('/buy-coin', isUser, function (req, res) {
             if (err) { console.log("Something went wrong"); }
             else {
               var wallet_address = result.wallet_address;
-              res.render('buy-coin', { error, success, wallet_address, user_id, ebt,tebt });
+              res.render('buy-coin', { error, success, wallet_address, user_id, fbt,tfbt });
             }
           })
         }
@@ -375,11 +375,11 @@ router.post('/ETH', isUser, async function (req, res) {
   var usd_count = req.body.usd;
   console.log("bbbbb", user_id);
 
-  var ebt_count = (req.body.usd)*(1/0.0000000065);
-  Tokensettings.findOne({}).then(ebt_rate => {
-    var rate_per_ebt = ebt_rate.etherValue;
+  var fbt_count = (req.body.usd)*(1/0.0000000065);
+  Tokensettings.findOne({}).then(fbt_rate => {
+    var rate_per_fbt = fbt_rate.etherValue;
     // var rate_per_rwn = req.body.rate_per_rowan;
-    var total_amnt = (usd_count) * (rate_per_ebt);
+    var total_amnt = (usd_count) * (rate_per_fbt);
     var eth_wallet_address = req.body.eth_wallet_address;
     var transaction_Id = req.body.transaction_id;
     var user_wallet_address = req.body.user_wallet_address;
@@ -396,8 +396,8 @@ router.post('/ETH', isUser, async function (req, res) {
     // console.log("-----------Total amount ",payment_type, created_at, total_amnt,eth_wallet_address,transaction_Id,imageFile);
     const order = new OrderDetails({
       user_id: user_id,
-      ebt_count: ebt_count,
-      rate_per_ebt: rate_per_ebt,
+      fbt_count: fbt_count,
+      rate_per_fbt: rate_per_fbt,
       total_amnt: total_amnt,
       transaction_Id: transaction_Id,
       sender_wallet_address: user_wallet_address,
@@ -415,7 +415,7 @@ router.post('/ETH', isUser, async function (req, res) {
         if (err) return console.log(err);
         console.log('Hello World > helloworld.txt');
         });
-        req.flash("success_msg", "Thankyou!, Request has been sent successfully and you will get the ebt in your account after your payment verification.");
+        req.flash("success_msg", "Thankyou!, Request has been sent successfully and you will get the FBT in your account after your payment verification.");
         res.redirect('/buy-coin');
       })
       .catch(err => {

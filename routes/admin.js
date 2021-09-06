@@ -273,13 +273,13 @@ routes.get('/main-dashboard', middleware_check_login, async (req, res) => {
   let usersRegisteredThisMonth = await adminServices.usersRegisteredThisMonth()
   console.log(usersRegisteredThisMonth)
 
-  let totalEBTRewardsDestributed = await adminServices.totalEBTRewardsDestributed(total_users_s)
+  let totalFBTRewardsDestributed = await adminServices.totalFBTRewardsDestributed(total_users_s)
 
-  const EBT_bal = await ethHelper.coinBalanceETH(admin_wallet) //$EBT balance
-  console.log(`290-ebt`, EBT_bal)
+  const FBT_bal = await ethHelper.coinBalanceETH(admin_wallet) //$FBT balance
+  console.log(`290-FBT`, FBT_bal)
 
-  const ebtSold = await adminServices.EBTSold(EBT_bal)
-  console.log(`290-ebtSold`, ebtSold)
+  const fbtSold = await adminServices.FBTSold(FBT_bal)
+  console.log(`290-FBTSold`, fbtSold)
 
   const actual_balance = await ethHelper.balanceMainETH(admin_wallet) //ethereum balance
   console.log(`293-eth`, actual_balance)
@@ -295,7 +295,7 @@ routes.get('/main-dashboard', middleware_check_login, async (req, res) => {
   }
   else {
     res.render('admin/front-admin/main-dashboard.ejs', {
-      Name: req.session.user_name, session: req.session, profile_image: req.session.profile_image, total_orders_s: total_orders, EBT_balance: EBT_bal, ether_balance: actual_balance, main_rwn_vault: "0", total_users_s, ebtSold, totalEBTRewardsDestributed, usersRegisteredThisMonth
+      Name: req.session.user_name, session: req.session, profile_image: req.session.profile_image, total_orders_s: total_orders, FBT_balance: FBT_bal, ether_balance: actual_balance, main_rwn_vault: "0", total_users_s, fbtSold, totalFBTRewardsDestributed, usersRegisteredThisMonth
     }) 
   }
 })
@@ -641,13 +641,13 @@ routes.post('/update-password-user',middleware_check_login, (req, res) => {
         from: 'info.artwtoken@gmail.com',
         subject: 'Forgot Password',
 
-        text: 'Dear Customer,' + '\n\n' + 'New Password form ebt.\n\n' +
+        text: 'Dear Customer,' + '\n\n' + 'New Password form FBT.\n\n' +
           'Password: ' + password + '\n http://' + req.headers.host + '/' + '\n\n' +
 
           'We suggest you to please change your password after successfully logging in on the portal using the above password :\n\n' +
 
           'Here is the change password link: http://' + req.headers.host + '/Profile' + '\n\n' +
-          'Thanks and Regards,' + '\n' + '$EBT Team' + '\n\n',
+          'Thanks and Regards,' + '\n' + '$FBT Team' + '\n\n',
       };
       smtpTransport.sendMail(mailOptions, function (err) {
         console.log(err);
@@ -893,7 +893,7 @@ routes.post('/submit-token',middleware_check_login, async (req, res, next) => {
                                           payment_status: 'pending',
                                           created_at: created_at,
                                           status: 'active',
-                                          token_type: '$EBT',
+                                          token_type: '$FBT',
                                           transaction_type: 'Send'
 
                                         });
@@ -1217,7 +1217,7 @@ routes.get('/referral', middleware_check_login, (req, res, next) => {
                         payment_status: 'pending',
                         created_at: created_at,
                         status: 'active',
-                        token_type: '$EBT',
+                        token_type: '$FBT',
                         transaction_type: 'Send',
                         referred_to_name: bonusUser.name,
                         referred_to_email: bonusUser.email,
@@ -1321,9 +1321,9 @@ routes.get('/update-token', middleware_check_login, async (req, res) => {
   success_msg = req.flash('success_msg');
   await Tokensettings.findOne().then(async result => {
     console.log("result-------", result);
-    let ebt_bal = await ethHelper.coinBalanceETH(admin_wallet)
+    let fbt_bal = await ethHelper.coinBalanceETH(admin_wallet)
     res.render('admin/front-admin/update-token', {
-      err_msg, success_msg, layout: false, session: req.session, Name: req.session.user_name, profile_image: req.session.profile_image, result, actual_balance: ebt_bal
+      err_msg, success_msg, layout: false, session: req.session, Name: req.session.user_name, profile_image: req.session.profile_image, result, actual_balance: fbt_bal
     })
 
   })
@@ -3139,7 +3139,7 @@ routes.get('/order-history',middleware_check_login,  (req, res) => {
   OrderDetails.find({}).then(async (orderDetails) => {
    if (orderDetails) {
       
-      res.render('admin/front-admin/order-history.ejs', { err_msg, success_msg, expressFlash: req.flash(), order_details: orderDetails, moment, session: req.session, user_id: req.session.user_id, ebt_count: req.session.ebt_count, rate_per_ebt: req.session.rate_per_ebt, total_amnt: req.session.total_amnt, transaction_Id: req.session.transaction_Id, sender_wallet_address: req.session.sender_wallet_address, eth_wallet_address: req.session.eth_wallet_address, image: req.session.image , payment_type: req.session.payment_type,  payment_status: req.session.payment_status, created_at: req.session.created_at, });
+      res.render('admin/front-admin/order-history.ejs', { err_msg, success_msg, expressFlash: req.flash(), order_details: orderDetails, moment, session: req.session, user_id: req.session.user_id, fbt_count: req.session.fbt_count, rate_per_fbt: req.session.rate_per_fbt, total_amnt: req.session.total_amnt, transaction_Id: req.session.transaction_Id, sender_wallet_address: req.session.sender_wallet_address, eth_wallet_address: req.session.eth_wallet_address, image: req.session.image , payment_type: req.session.payment_type,  payment_status: req.session.payment_status, created_at: req.session.created_at, });
     }
   }, (error) => {
     res.send('Something went wrong');

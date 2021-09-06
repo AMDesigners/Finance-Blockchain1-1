@@ -952,10 +952,10 @@ var OrderDeatailsSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User_registration'
     },
-    ebt_count: {
+    fbt_count: {
         type: String
     },
-    rate_per_ebt: {
+    rate_per_fbt: {
         type: String
     },
     total_amnt: {
