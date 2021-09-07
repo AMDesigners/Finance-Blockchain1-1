@@ -14,6 +14,7 @@ const blockchainController = require('../controllers/blockchainController');
 const blockchainServices = require("../services/blockchainServices");
 const { calculateHours } = require('../helper/userHelper');
 const { mail } = require('../helper/mailer');
+const multer = require("multer");
 
 const { Registration, Userwallet, Importwallet, Tokensettings, Tokendetails, OrderDetails, RefCode, FAQ, ContactInfo } = require('../models/userModel');
 
@@ -99,9 +100,6 @@ router.get('/Create-wallet-success', userControllers.walletSuccess);
 
 router.post('/refs-by-date', userControllers.getrefdate);
 
-
-router.get('/Create-wallet-success', userControllers.walletSuccess);
-
 router.post('/currency-value',userControllers.getCurrencyValue);
 
 router.get('/change-password', isUser, function (req, res) {
@@ -143,12 +141,12 @@ router.post('/update-profile', isUser, async function (req, res) {
   let name = req.body.name.trim();
   let email = req.body.email.trim();
   let mob = req.body.mob.trim();
-  let country = req.body.country.trim();
+  // let country = req.body.country.trim();
 
   let status = await userServices.updateARTUser(email, name);
   console.log(status);
   if (status == 1) {
-    Registration.update({ _id: user_id }, { $set: { name: name, email: email, mobile_no: mob, country: country} }, { upsert: true }, function (err, result) {
+    Registration.update({ _id: user_id }, { $set: { name: name, email: email, mobile_no: mob} }, { upsert: true }, function (err, result) {
       if (err) {
         console.log("Something went wrong");
         req.flash('err_msg', 'Something went wrong, please try again.');
@@ -333,6 +331,162 @@ router.get('/transaction-table', isUser, function (req, res) {
 // });
 
 
+// router.get("/buy-coin", isUser, function (req, res) {
+//   // var error ="";
+//   // var success = "";
+//   error = req.flash("err_msg");
+//   success = req.flash("success_msg");
+//   var user_id = req.session.re_us_id;
+//   Tokensettings.findOne().then((btcresult) => {
+//     var fbt = btcresult.etherValue;
+//     var tfbt = fbt * 0.0000000065;
+//     Importwallet.findOne(
+//       { user_id: user_id, login_status: "login" },
+//       function (err, loginwallet) {
+//         if (err) {
+//           console.log("Something went wrong");
+//         } else {
+//           if (loginwallet != "" && loginwallet != undefined) {
+//             Userwallet.findOne(
+//               { '_id': loginwallet.wallet_id },
+//               function (err, result) {
+//                 if (err) {
+//                   console.log("Something went wrong");
+//                 } else {
+//                   var wallet_address = result.wallet_address;
+//                   res.render("buy-coin", {
+//                     error,
+//                     success,
+//                     wallet_address,
+//                     user_id,
+//                     fbt,
+//                     tfbt,
+//                   });
+//                 }
+//               }
+//             );
+//           }
+//         }
+//       }
+//     );
+//   });
+// });
+
+// // ------------------transaction ss storage-----------
+// const ss_storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "public/transaction_ss");
+//   },
+//   filename: (req, file, cb) => {
+//     console.log(file);
+//     cb(
+//       null,
+//       new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname
+//     );
+//   },
+// });
+
+// const filefilter = (req, file, cb) => {
+//   if (
+//     file.mimetype === "image/jpg" ||
+//     file.mimetype === "image/jpeg" ||
+//     file.mimetype === "image/png"
+//   ) {
+//     cb(null, true);
+//   } else {
+//     cb(null, false);
+//   }
+// };
+
+// const transaction_ss_upload = multer({
+//   storage: ss_storage,
+//   fileFilter: filefilter,
+// });
+// // ----------transaction ss upload ends--------
+
+// router.post(
+//   "/ETH",
+//   isUser,
+//   // transaction_ss_upload.single("transactionImage"),
+//   async function (req, res) {
+//     // const form = formidable({ multiples: true });
+//     // form.parse(req, (err, fields, files) => {
+//     //     if (err) {
+//     //       console.log("------------err---------- ",err);
+//     //     }
+//     console.log("Hello from ETH");
+//     console.log("fields========== ", req.body);
+//     var user_id = req.session.re_us_id;
+//     var usd_count = req.body.usd;
+//     console.log("bbbbb", user_id);
+
+//     var fbt_count = (req.body.usd)*(1/0.0000000065);
+//     Tokensettings.findOne({})
+//       .then(async (fbt_rate) => {
+//         var rate_per_fbt = fbt_rate.etherValue;
+//         // var rate_per_rwn = req.body.rate_per_rowan;
+//         var total_amnt = (usd_count) * (rate_per_fbt);
+//         var eth_wallet_address = req.body.eth_wallet_address;
+//         var transaction_Id = req.body.transaction_id;
+//         var user_wallet_address = req.body.user_wallet_address;
+//         var imageFile = req.file.filename;
+//         console.log(imageFile);
+//         // var image;
+//         // if (!imageFile) {
+//         //   image = ""
+//         // } else {
+//         //   image = req.files.image.name;
+//         //   console.log("vvvvvvvvv");
+//         // }
+//         var payment_type = "ETH";
+//         var created_at = new Date();
+//         // console.log("-----------Total amount ",payment_type, created_at, total_amnt,eth_wallet_address,transaction_Id,imageFile);
+//         const order = new OrderDetails({
+//           user_id: user_id,
+//           fbt_count: fbt_count,
+//           rate_per_fbt: rate_per_fbt,
+//           total_amnt: total_amnt,
+//           transaction_Id: transaction_Id,
+//           sender_wallet_address: user_wallet_address,
+//           eth_wallet_address: eth_wallet_address,
+//           image: imageFile,
+//           payment_type: payment_type,
+//           created_at: created_at,
+//         });
+//         console.log(await order.save());
+//         // console
+//         //   .log("details", order)
+//         //   .then((result) => {
+//         //     var imgpath = "public/tx_proof/" + imageFile;
+//         //     let testFile = fs.readFileSync(req.files.imageFile.path);
+//         //     let testBuffer = new Buffer(testFile);
+//         //     fs.writeFile(imgpath, testBuffer, function (err) {
+//         //       if (err) return console.log(err);
+//         //       console.log("Hello World > helloworld.txt");
+//         //     });
+//         req.flash(
+//           "success_msg",
+//           "Thankyou!, Request has been sent successfully and you will get the fbt in your account after your payment verification."
+//         );
+//         // res.redirect("/buy-coin");
+//         // })
+//         // .catch((err) => {
+//         //   console.log("-----------err--------------- ", err);
+//         //   req.flash(
+//         //     "err_msg",
+//         //     "Sorry!, we were unable to send your data, please try one more time."
+//         //   );
+//         //   res.redirect("/buy-coin");
+//         // });
+//       })
+//       .catch((err1) => {});
+//     res.redirect("/dashboard");
+//     // })
+//   }
+// );
+
+// module.exports = router;
+
 router.get('/buy-coin', isUser, function (req, res) {
   // var error ="";
   // var success = "";
@@ -361,9 +515,43 @@ router.get('/buy-coin', isUser, function (req, res) {
   })
 });
 
+// ------------------transaction ss storage-----------
+const ss_storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/transaction_ss");
+  },
+  filename: (req, file, cb) => {
+    console.log(file);
+    cb(
+      null,
+      new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname
+    );
+  },
+});
+
+const filefilter = (req, file, cb) => {
+  if (
+    file.mimetype === "image/jpg" ||
+    file.mimetype === "image/jpeg" ||
+    file.mimetype === "image/png"
+  ) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const transaction_ss_upload = multer({
+  storage: ss_storage,
+  fileFilter: filefilter,
+});
+// ----------transaction ss upload ends--------
 
 
-router.post('/ETH', isUser, async function (req, res) {
+
+router.post('/ETH', isUser, 
+transaction_ss_upload.single("transactionImage"),
+async function (req, res) {
   // const form = formidable({ multiples: true });
   // form.parse(req, (err, fields, files) => {
   //     if (err) {
@@ -383,7 +571,7 @@ router.post('/ETH', isUser, async function (req, res) {
     var eth_wallet_address = req.body.eth_wallet_address;
     var transaction_Id = req.body.transaction_id;
     var user_wallet_address = req.body.user_wallet_address;
-    var imageFile = req.body.transactionImage;
+   var imageFile = req.file.filename;  
     // var image;
     // if (!imageFile) {
     //   image = ""

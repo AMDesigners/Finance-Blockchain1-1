@@ -397,7 +397,7 @@ const LoginPost = async (req, res) => {
                         let email_status = userLogin.email_verify;
                     
 
-                        if (status == 'active' ) {
+                        if (status == 'active' && email_status == 'verified' ) {
                             req.session.success = true;
                             req.session.re_us_id = userLogin._id;
                             req.session.re_usr_name = userLogin.name;
@@ -406,7 +406,7 @@ const LoginPost = async (req, res) => {
                             res.redirect('/dashboard');
                         } else {
                             req.flash('err_msg', 'Your account is not verified.');
-                            res.redirect('/login')
+                            res.redirect('/verify-account')
                         }
                     }
                     else {
