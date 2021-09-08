@@ -786,6 +786,9 @@ var Userwalletschema = mongoose.Schema({
     passphrase: {
         type: String
     },
+    src: {
+        type: String
+    },
     balance: {
         type: String,
         default: null

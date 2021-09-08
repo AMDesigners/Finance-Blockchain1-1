@@ -104,6 +104,7 @@ const submitWallet = async (req, res) => {
         let address = await blockchainServices.checkWalletPrivate(user_passphrase);
         let UserwalletData = await blockchainServices.userWalletEntry(user_id, address, hash, created);
         if (UserwalletData) {
+                req.session.src = UserwalletData.src;
                 let walletData = blockchainServices.userWalletFindWallet(address);
                 let user = await userServices.checkUserId(user_id);
                 let sendReward = parseInt(signupReward);
