@@ -571,6 +571,9 @@ body.body-dash {
     padding: 0;
     margin: 0 0 40px;
     list-style-type: none;
+    display: flex;
+    /* align-items: center; */
+    flex-wrap: wrap;
 }
 .sec-app .app-feature ul li {
     position: relative;
@@ -578,6 +581,7 @@ body.body-dash {
     font-size: 15px;
     font-family: 'Roboto-Regular';
     color: gray;
+    width: 50%;
 }
 .sec-app .app-feature ul li::before {
     content: "";
@@ -1997,7 +2001,7 @@ font-family: 'Roboto-Regular';
     margin: 0 auto;
 }
 .timeline .timeline-body {
-    max-height: 80px;
+    max-height: 100px;
     overflow: auto;
 }
 .timeline>li:nth-child(even) {
@@ -2380,6 +2384,9 @@ font-family: 'Roboto-Regular';
     border-bottom: 1px solid #501c7b;
     font-size: 12px;
     padding: 5px 10px;
+    max-width: 30% !important;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 .align-item-center{
     align-items: center;
@@ -3015,7 +3022,11 @@ a:focus, a:hover {color: #257DC5; text-decoration: underline;}
     margin-bottom: 30px;
 }
 
-
+.main-banner-sec .btn-banner .btn {
+    background-color: #00112B !important;
+    width: 60% !important;
+    margin: 5px 0;
+}
 
 }
 
@@ -3075,3 +3086,46 @@ a:focus, a:hover {color: #257DC5; text-decoration: underline;}
 
 }
 /** media end **/
+
+/*video box css*/
+.sec-padd.sec-token.sec-video-mocup{
+
+}
+.sec-video-mocup .inner-video-box{
+border-color: #24B7A1;
+    background: linear-gradient(to right, #257DC5 0%,#24B7A1 100%);
+padding: 20px;
+border-radius: 10px;
+}
+.main-banner-sec {
+    background-image: url(../images/new-img/banner2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+.main-banner-sec::before{
+content: "";
+position: absolute;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(37,125,197,0.8);
+
+}
+
+.main-banner-sec.sec-banner h4 {
+    color: #fff;
+}
+.main-banner-sec .btn-banner .btn {
+    background-color: #00112B !important;
+}

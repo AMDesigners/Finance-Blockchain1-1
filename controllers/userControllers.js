@@ -13,6 +13,7 @@ const { balanceMainETH, coinBalanceETH , usdBalanceUSD,  createWalletHelper,
     hashStatusETH,
     hashStatus } = require('../helper/ethHelper');
 const {Tokendetails,Tokensettings} = require('../models/userModel');
+const {MetaMaskOnboarding} = require("@metamask/onboarding");
 
 
 const sessionHeader = async (req, res, next) => {
@@ -199,6 +200,7 @@ const sessionHeader = async (req, res, next) => {
             moment,
             coinbalance,
             usd_value,
+            MetaMaskOnboarding,
           });
         }
       } else {

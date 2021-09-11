@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@metamask/eslint-config": "^8.0.0",
+    "@metamask/onboarding": "^1.0.1",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "bip39": "^3.0.2",
