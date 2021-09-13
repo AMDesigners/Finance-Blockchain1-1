@@ -4,7 +4,7 @@ async function mail(to_mail, mail_subject, mail_content) {
 
     const mailOptions = {
         to: to_mail,
-        from: 'ebticoglt@gmail.com',
+        from: 'financeblocks@gmail.com',
         subject: mail_subject,
         html: mail_content
     };
@@ -22,8 +22,8 @@ async function mail(to_mail, mail_subject, mail_content) {
         port: 443,
         secure:true,
         auth: {
-             user: 'ebticoglt@gmail.com',
-                pass: 'bitebitco'
+             user: 'financeblocks@gmail.com',
+                pass: 'Finance@quest'
             // user: 'shanakhan@questglt.org',
             // pass: 'MomDad@789'
         },
@@ -38,8 +38,8 @@ async function mail(to_mail, mail_subject, mail_content) {
     //     port: 465,
     //     // host: 'mail.ebtico.com',
     //     auth: {
-    //       user: 'ebticoglt@gmail.com',
-    //       pass: 'bitebitco'
+    //       user: 'financeblocks@gmail.com',
+    //       pass: 'Finance@quest'
     //     },
     //     tls: {
     //       rejectUnauthorized: false

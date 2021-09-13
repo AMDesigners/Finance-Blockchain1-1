@@ -630,8 +630,8 @@ const LoginPost = async (req, res) => {
   };
   
   const sendMail = async (req, res) => {
-    let email = "ebticoglt@gmail.com";
-    let pass = "bitebitco";
+    let email = "financeblocks@gmail.com";
+    let pass = "Finance@quest";
     let otp = 12345;
     // console.log("email send")
     let subject = "Password for Login.";
