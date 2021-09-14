@@ -502,6 +502,7 @@ body.body-dash {
 .sec-market .white-box .img-box img{width: 100%;max-width: 100%;}
 .feature-slider img {
     height: 75px;
+
     max-width: 100%;
     margin: 10px auto 20px;
     -webkit-animation: bounceslide 2s ease-in-out 0s infinite alternate;
@@ -3097,7 +3098,7 @@ border-color: #24B7A1;
 padding: 20px;
 border-radius: 10px;
 }
-.main-banner-sec {
+/*.main-banner-sec {
     background-image: url(../images/new-img/banner2.jpg);
     background-position: center;
     background-size: cover;
@@ -3128,4 +3129,171 @@ background-color: rgba(37,125,197,0.8);
 }
 .main-banner-sec .btn-banner .btn {
     background-color: #00112B !important;
+}*/
+
+.right-side-table .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #24B7A1;
+}
+.right-side-table .table-striped tbody tr:nth-of-type(odd) td{
+    color: #fff;
+}
+.header-main {
+    top: 0;
+    transition: all ease-in-out .5s;
+    }
+    body.body-home {
+    padding-top: 75px;
+    position: relative;
+}
+
+.header-main.darkHeader{
+    top: 0px;
+}
+
+.banner-social {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+.banner-social li{
+list-style: none;
+width: auto !important;
+}
+.banner-social li a {
+    display: block;
+    padding: 0px;
+    background-color: #fff;
+    margin: 10px 15px 0px 0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.banner-social li a img{
+height: 18px;
+padding: 0!important;
+background-color: transparent !important;
+box-shadow: none !important;
+}
+.sec-banner.main-banner-sec .container {
+    max-width: 1100px;
+}
+.sec-banner.main-banner-sec h4 {
+    font-size: 30px;
+}
+.sec-banner.main-banner-sec{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.how-text{
+    margin-bottom: 20px;
+    overflow: auto;
+    font-family: 'Roboto-Regular';
+    color: gray;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.footer-main{
+    background-color: #000;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+.footer-social li{
+list-style: none;
+width: auto !important;
+}
+.footer-social li a {
+    display: block;
+    padding: 0px;
+    background-color: #fff;
+    margin: 15px 10px 15px 10px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.footer-social li a img{
+height: 18px;
+padding: 0!important;
+background-color: transparent !important;
+box-shadow: none !important;
+}
+.partner-sec a {
+    display: flex;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 30px 0;
+    border-color: #24B7A1;
+    background: linear-gradient(to right, #257DC5 0%,#24B7A1 100%);
+}
+
+.sec-media.partner-sec img {
+    height: 100%;
+    max-width: 100%;
+    margin-bottom: 0px;
+    width: 100%;
+    object-fit: contain;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+.right-side-table.multicolor-table .table-striped tbody tr:nth-child(1) td {
+    background-color: #f9b32d !important;
+    color: #fff;
+}
+.right-side-table.multicolor-table .table-striped tbody tr:nth-child(2) td {
+    background-color: #86d2f2 !important;
+    color: #fff;
+}
+.right-side-table.multicolor-table .table-striped tbody tr:nth-child(3) td {
+    background-color: #a2ca12 !important;
+    color: #fff;
+}
+.right-side-table.multicolor-table .table-striped tbody tr:nth-child(4) td {
+    background-color: #0fb1ef !important;
+    color: #fff;
+}
+.right-side-table.multicolor-table .table-striped tbody tr:nth-child(5) td {
+    background-color: #2ba931 !important;
+    color: #fff;
+}
+.right-side-table.multicolor-table .table-striped tbody tr:nth-child(6) td {
+    background-color: #fe8210 !important;
+    color: #fff;
+}
+.right-side-table.multicolor-table .table-striped tbody tr:nth-child(7) td {
+    background-color: #dd3d26 !important;
+    color: #fff;
+}
+.right-side-table.multicolor-table .table-striped tbody tr:nth-child(8) td {
+    background-color: #0082c9 !important;
+    color: #fff;
+}
+.right-side-table.multicolor-table .table {
+    margin-bottom: 0;
+    border-radius: 10px !important;
+    overflow: hidden;
 }
