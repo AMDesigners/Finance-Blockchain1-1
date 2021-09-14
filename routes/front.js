@@ -55,7 +55,6 @@ router.post("/contact", async (req, res) => {
       <p>${req.body.user_email}</p>
       <p>${req.body.message}</p>`;
   await mail(email, subject, text);
-  req.flash("success_msg", "Email sent successfully!");
   res.redirect("/");
 });
 
