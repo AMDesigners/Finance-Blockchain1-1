@@ -16,7 +16,6 @@ const { calculateHours } = require("../helper/userHelper");
 const { mail } = require("../helper/mailer");
 const multer = require("multer");
 
-
 const {
   Registration,
   Userwallet,
@@ -47,6 +46,17 @@ router.post("/users-by-date", async (req, res) => {
   console.log(date);
   const data = await Tokendetails.find({ created_at: date });
   res.json(data);
+});
+
+router.post("/contact", async (req, res) => {
+  let email = "aashishporwal@questglt.org"; //this is the client email id
+  let subject = "Mail from contact form.";
+  let text = `<p>${req.body.first_name}</p>
+      <p>${req.body.user_email}</p>
+      <p>${req.body.message}</p>`;
+  await mail(email, subject, text);
+  req.flash("success_msg", "Email sent successfully!");
+  res.redirect("/");
 });
 
 //***************** get recive-rowan **************//
@@ -276,7 +286,7 @@ router.get("/transaction-table", isUser, function (req, res) {
           console.log("Something went wrong");
         } else {
           Tokendetails.find(
-            { 'payment_status': "pending" },
+            { payment_status: "pending" },
             async function (err, response) {
               if (response != "" && response != null && response != undefined) {
                 for (var i = 0; i < response.length; i++) {
@@ -393,7 +403,6 @@ router.get("/transaction-table", isUser, function (req, res) {
 
 //   }
 // });
-
 
 router.get("/buy-coin", isUser, function (req, res) {
   // var error ="";
@@ -548,10 +557,8 @@ router.post(
   }
 );
 
-router.get("/store-hash", async (req,res) => {
-  const order = new OrderDetails({
-
-  })
+router.get("/store-hash", async (req, res) => {
+  const order = new OrderDetails({});
 });
 
 module.exports = router;

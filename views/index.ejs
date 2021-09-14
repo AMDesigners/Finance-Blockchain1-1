@@ -861,7 +861,7 @@
                 
             </div>
             <div class="col-md-12">
-                <form class="getinform">
+                <form class="getinform" action="contact" method="POST">
                     <div class="form-group">
                         <input class="form-control" name="first_name" data-rule-required="true" data-msg-required="Please Enter Your Name." placeholder="Full name" type="text">
                     </div>
@@ -869,7 +869,7 @@
                         <input class="form-control" name="user_email" data-rule-required="true" data-msg-required="Please Enter Your Email." data-rule-email="true" data-msg-email="Please enter a valid email address" placeholder="Enter email address" type="email">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control msg"  placeholder="Message" type="text"></textarea>
+                        <textarea class="form-control msg" name="message"  placeholder="Message" type="text"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="getinbtn">send</button>
