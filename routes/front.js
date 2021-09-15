@@ -51,10 +51,18 @@ router.post("/users-by-date", async (req, res) => {
 router.post("/contact", async (req, res) => {
   let email = "aashishporwal@questglt.org"; //this is the client email id
   let subject = "Mail from contact form.";
+  const { full_name, user_email, message } = req.body;
   let text = `<p>${req.body.first_name}</p>
       <p>${req.body.user_email}</p>
       <p>${req.body.message}</p>`;
   await mail(email, subject, text);
+  const contact = new ContactInfo({
+    name: full_name,
+    email: user_email,
+    message,
+    created_at: new Date().toLocaleDateString().toString(),
+  });
+  await contact.save();
   res.redirect("/");
 });
 
